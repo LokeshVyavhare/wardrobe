@@ -18,7 +18,7 @@ const cartSchema = new mongoose.Schema(
       min: 1,
     },
     delivered: {
-      type: boolean,
+      type: Boolean,
       required: true,
     },
   },
