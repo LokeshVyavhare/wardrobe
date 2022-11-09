@@ -4,26 +4,28 @@ const authMiddleWare = require("../../authMiddleware/authMiddleware");
 
 const app = express.Router();
 
-app.get("/:id", authMiddleWare, (req, res) => {
-  if (req.id !== req.params.id) {
-    return res
-      .status(401)
-      .send({ error: true, message: "Something went wrong" });
-  }
+app.get("/:id", async (req, res) => {
+  console.log(req.params.id);
+  // if (req.id !== req.params.id) {
+  //   return res
+  //     .status(401)
+  //     .send({ error: true, message: "Something went wrong" });
+  // }
   try {
-    let cart = Cart.findById({ user: req.id }).populate("product");
+    let cart = await Cart.findById("636bca4327430bb6dfb7c61e").populate(
+      "product"
+    );
     res.status(200).send(cart);
   } catch (e) {
-    res.status(401).send({ error: true, message: "Something went wrong" });
+    res.status(401).send({ error: true, message: e });
   }
 });
 
 app.post("/", authMiddleWare, (req, res) => {
+  const { product, user, quantity, delivered } = req.body;
+  console.log(req.body);
   try {
-    let cart = Cart.create(
-      { user: req.id, product: req.body.product, quantity: 1 },
-      { new: true }
-    );
+    let cart = Cart.create({ product, user, quantity, delivered });
     res.status(200).send(cart);
   } catch (e) {
     res.status(401).send({ error: true, message: "Something went wrong" });
