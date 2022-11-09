@@ -1,0 +1,46 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.heading{
+    font-weight: bold;
+}
+.h{
+    font-weight: 550;
+    text-decoration: underline;
+}
+.photo{
+    margin: auto;
+}
+.wgrid{
+    margin-left: 200px;
+}
+.triImg{
+    margin:"auto";
+    padding-top: 150px;
+    
+}
+.cbox{
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    position: relative;
+    bottom: 650px;
+    
+
+}
+.f{
+    list-style: none;
+}
+.l{
+    list-style: none;
+    text-decoration: underline;
+    margin-top: 45px;
+}
+
+.listitem{
+    list-style: none;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 15px;
+}
