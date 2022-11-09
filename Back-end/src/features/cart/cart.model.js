@@ -14,8 +14,11 @@ user : {
 quantity : {
     type: Number,
     required: true,
-    min: 1
+    min: 1,
+    enum : [false,true]
 }
+},{
+    versionKey: false
 });
 
 const Cart = mongoose.model("cart" , cartSchema);
