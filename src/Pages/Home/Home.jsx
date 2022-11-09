@@ -1,5 +1,7 @@
+import { Cart } from "../../Components/Cart/cart"
 export const Home = () => {
     return <div>
-        Home
+        {/* Home */}
+        <Cart></Cart>
     </div>
 }
