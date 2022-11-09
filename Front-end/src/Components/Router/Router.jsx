@@ -5,6 +5,7 @@ import { Mens } from '../Mens/Men';
 import { Womens } from '../Womens/Womens';
 import { Login } from '../Registration/Login';
 import { Register } from '../Registration/Register';
+import { Cart } from '../Cart/cart';
 
 
 export const Router = () => {
@@ -15,5 +16,6 @@ export const Router = () => {
         <Route path='/kids' element={<Kids/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
+        <Route path='/cart' element={<Cart/>}></Route>
     </Routes>
 }
