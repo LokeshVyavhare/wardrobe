@@ -15,6 +15,8 @@ const authMiddleware = async (req, res, next) => {
     user.password === password &&
     user.type === type
   ) {
+    req.id = id;
+    req.userType = type;
     next();
   } else {
     res.status(401).send({
