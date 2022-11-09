@@ -35,7 +35,7 @@ app.patch("/:cartId", authMiddleWare, (req, res) => {
     let cart = Cart.findByIdAndUpdate(req.params.id, { count: req.body });
     res
       .status(200)
-      .send({ error: false, message: "Cart updated successfully" });
+      .send({ error: false, message: "Cart updated successfully",cart });
   } catch (e) {
     res.status(401).send({ error: true, message: "Something went wrong." });
   }
