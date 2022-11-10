@@ -86,3 +86,27 @@
     margin-right: 20px;
 
 }
+.ecoBox{
+    border: 1px solid #00917e;
+    padding: 7px 0;
+    box-sizing: border-box;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.ecoBoxHeading{
+    color: #00917e;
+    text-transform: uppercase;
+    
+}
+.ecoBoxText{
+    font-size: 11px;
+    padding: 12px 0;
+    text-align: left;
+}
+
+
+
+.promoCodeBox{
+    background-color: rgb(228, 228, 228);
+
+}
