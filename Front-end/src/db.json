@@ -22,6 +22,7 @@
     "products":[
         {
             "name": "MAJE",
+            "id":1,
             "image1": "https://www.yoox.com/images/items/14/14270715XR_14_f.jpg?impolicy=crop&width=387&height=490",
             "image2": "https://www.yoox.com/images/items/14/14270715XR_14_r.jpg?impolicy=crop&width=387&height=490",
             "description": "Some Desciption",
@@ -31,6 +32,7 @@
         },
         {
             "name": "MAJE",
+            "id":2,
             "image1": "https://www.yoox.com/images/items/45/45703381NK_14_f.jpg?impolicy=crop&width=387&height=490",
             "image2": "https://www.yoox.com/images/items/45/45703381NK_14_e.jpg?impolicy=crop&width=387&height=490",
             "description": "Some Desciption",
@@ -40,6 +42,7 @@
         },
         {
             "name": "BALENCIAGA",
+            "id":3,
             "image1": "https://www.yoox.com/images/items/11/11920759UU_14_f.jpg?impolicy=crop&width=387&height=490",
             "image2": "https://www.yoox.com/images/items/11/11920759UU_14_e.jpg?impolicy=crop&width=387&height=490",
             "description": "Some Desciption",
@@ -49,6 +52,7 @@
         },
         {
             "name": "DOLCE & GABBANA",
+            "id":4,
             "image1": "https://www.yoox.com/images/items/46/46854541BV_14_f.jpg?impolicy=crop&width=387&height=490",
             "image2": "https://www.yoox.com/images/items/46/46854541BV_14_f.jpg?impolicy=crop&width=387&height=490",
             "description": "Some Desciption",

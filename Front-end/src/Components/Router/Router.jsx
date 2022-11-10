@@ -6,6 +6,8 @@ import { Womens } from '../Womens/Womens';
 import { Login } from '../Registration/Login';
 import { Register } from '../Registration/Register';
 import { Cart } from '../Cart/cart';
+import { Category } from '../Category_Product/Category';
+import { Product } from '../Product/Product';
 
 
 export const Router = () => {
@@ -17,5 +19,7 @@ export const Router = () => {
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
         <Route path='/cart' element={<Cart/>}></Route>
+        <Route path='/category/:category' element={<Category/>}></Route>
+        <Route path='/product/:id' element={<Product/>}></Route>
     </Routes>
 }
