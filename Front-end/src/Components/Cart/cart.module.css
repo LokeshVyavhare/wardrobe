@@ -26,7 +26,7 @@
 .cart .link a:hover{
     text-decoration: none;
 }
-.payment{
+.nav{
     padding: 20px 25px;
     border-bottom: 6px solid rgb(228, 228, 228);
     width: 100%;
@@ -34,39 +34,30 @@
     align-items: center;
 }
 
-.payment .paypalBox{
-    background-color: #ffc439;
-    padding: 15px 25px;
-    justify-content: space-around;
-    align-items: center;
-    margin: auto 25px;
-}
-.payment .paypalBox img{
-    width: 40%;
-}
-.payment .paypalBox p{
-    font-size: 14px;
-}
 
-.payment .proceedToOrder{
+.nav .proceedToOrder{
     background-color: #000;
     color: #fff;
     padding: 15px 35px;
     width: fit-content;
     justify-content: space-around;
     align-items: center;
+    cursor: pointer;
 }
-.payment .proceedToOrder:hover{
-    color: grey;
+.nav .proceedToOrder:hover{
+    color: rgb(199, 198, 198);
 }
-.payment .proceedToOrder p{
+.nav .proceedToOrder p{
     font-size: 14px;
 }
 
-.payment .proceedToOrder .icon{
+.nav .proceedToOrder .icon{
     font-size: 25px;
     margin-left: 20px;
 }
+
+
+
 .cartCountbutton{
     width: 30px;
     height: 30px;
@@ -84,4 +75,38 @@
     padding: 5px 25px;
     background-color: rgb(225,225,225);
     z-index: 1;
+}
+.shippingList{
+    margin: 25px auto;
+}
+.shippingOpt{
+    padding: 25px 35px;
+}
+.shippingRadio{
+    margin-right: 20px;
+
+}
+.ecoBox{
+    border: 1px solid #00917e;
+    padding: 7px 0;
+    box-sizing: border-box;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.ecoBoxHeading{
+    color: #00917e;
+    text-transform: uppercase;
+    
+}
+.ecoBoxText{
+    font-size: 11px;
+    padding: 12px 0;
+    text-align: left;
+}
+
+
+
+.promoCodeBox{
+    background-color: rgb(228, 228, 228);
+
 }

@@ -1,0 +1,48 @@
+/* body{
+    background-color: black;
+} */
+.country{
+    border: 1px solid red;
+    
+}
+.cutomer{
+    margin-top: 10px;
+}
+.logo>img{
+    margin: auto;
+    width: 200px;
+    height: 150px;
+    border: 1px solid palegreen;
+}
+.logo{
+    
+    margin-top: 50px;
+     border: 1px solid palegreen;
+     justify-items: center;
+}
+.logo>p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}
+.mainPages{
+        width: 75%;
+        display: flex;
+        align-items: center;
+        /* justify-content: "; */
+       
+        margin: auto;
+        margin-top: 80px;
+        justify-content:space-around;
+        gap: 10px;
+       
+}
+
+.active {
+    text-decoration: none;
+    color: red;
+  }
+  
+  .default {
+    text-decoration: none;
+    color: black;
+  }
