@@ -3,6 +3,6 @@ const initialData = {
     loading:false,
     error:false,
 }
-export const productReducer= (state=initialData, action) => {
+export const categoryReducer= (state=initialData, action) => {
     return state
 }
