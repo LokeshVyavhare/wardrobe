@@ -6,8 +6,6 @@ import styled from 'styled-components';
 import CategoryCard from './CategoryCard';
 import Filter from './Filter';
 
-import styled from "styled-components";
-
 
 const Category = () => {
 const {data, error , loading }= useSelector((store) => store.category);
@@ -43,8 +41,6 @@ React.useEffect(() => {
                />
                </div>
 
-                 
-                </div>
 
             ))
          }
@@ -61,18 +57,6 @@ display : flex;
 height : auto;
 width : 70%;
 margin : auto;
-`;
-
-const WrapperFilter = styled.div`
-width : 300px;
-`;
-
-const WrapperProducts = styled.div`
-width : 90%;
-
-border : 1px solid red;
-display : flex;
-height : auto;
 `;
 
 const WrapperFilter = styled.div`
