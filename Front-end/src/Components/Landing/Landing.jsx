@@ -1,6 +1,6 @@
 import { Button } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
-import  Footer  from '../Footer/Footer';
+import Footer from '../Footer/Footer';
 import styles from './Landing.module.css'
 import UpparSection from './UpparSection'
 
@@ -20,7 +20,7 @@ const links = [
 export const Landing = () => {
 
 
-    return <div style={{ height: "1500px" }}>
+    return <div style={{ height: "auto" }}>
         {/* <h1>Landing</h1> */}
 
         {/* uppar section */}
@@ -49,7 +49,7 @@ export const Landing = () => {
                     <div style={{ backgroundColor: "#363636", height: "55px", color: "white", fontWeight: "bold" }}>
                         <p > {link.title}</p>
                     </div>
-                    <Button colorScheme='gray' size='sm' color="#333" marginTop="14px" fontWeight="bold" fontFamily="heading" fontSize="12px">
+                    <Button  position=""  colorScheme='gray' size='sm' color="#333" marginTop="14px" fontWeight="bold" fontFamily="heading" fontSize="12px">
                     [ VIEW MORE ]
                     </Button>
 
@@ -68,7 +68,7 @@ export const Landing = () => {
 
         </div>
 
-        <Footer/>
+        {/* <Footer/> */}
 
 
 
