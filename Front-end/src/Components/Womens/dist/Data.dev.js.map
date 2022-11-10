@@ -1,0 +1,1 @@
+{"version":3,"sources":["Data.js"],"names":["data","id","title"],"mappings":";;;;;;AAAO,IAAMA,IAAI,GAAC,CACd;AACIC,EAAAA,EAAE,EAAC,CADP;AAEIC,EAAAA,KAAK,EAALA;AAFJ,CADc,CAAX","sourcesContent":["export const data=[\r\n    {\r\n        id:1,\r\n        title\r\n    }\r\n]"],"file":"Data.dev.js"}
