@@ -1,7 +1,9 @@
 import React from 'react';
 import {useSelector , useDispatch} from "react-redux"
 import { getCategory } from '../../Redux/Category/actions';
-import styled from "styled-components";
+import styled from 'styled-components';
+import CategoryCard from './CategoryCard';
+import Filter from './Filter';
 
 const Category = () => {
 const {data, error , loading }= useSelector((store) => store.category);
@@ -16,15 +18,21 @@ React.useEffect(() => {
       <Wrapper>
 
         <WrapperFilter>
-
+         <Filter />
         </WrapperFilter>
 
         <WrapperProducts>
          {
             data.map((el) => (
                 <div key={el.id}>
-                 
-                </div>
+               <CategoryCard
+               key={el.id}
+               src={el.image2}
+               name= {el.name}
+               description = {el.description}
+               price= {el.prize}
+               />
+               </div>
             ))
          }
         </WrapperProducts>
@@ -35,19 +43,18 @@ React.useEffect(() => {
 }
 
 const Wrapper = styled.div`
-border : 1px solid red;
 display : flex;
 height : auto;
+width : 70%;
+margin : auto;
 `;
 
 const WrapperFilter = styled.div`
-width : 200px;
-border : 1px solid black;
+width : 300px;
 `;
 
 const WrapperProducts = styled.div`
-width : 100%;
-border: 1px solid blue;
+width : 90%;
 display : grid;
 grid-template-columns : repeat(auto-fit, minmax(200px,max-content));
 justify-content : center;
