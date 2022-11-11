@@ -1,0 +1,38 @@
+.mainPages{
+    width: 75%;
+    display: flex;
+    align-items: center;
+    /* justify-content: "; */
+   
+   
+    
+    justify-content:space-around;
+    gap: 10px;
+    font-weight: 500;
+    font-family: Montserrat,sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin: auto;
+    margin-top: 15px;
+   
+}
+
+.active {
+text-decoration: none;
+color: red;
+}
+
+.default {
+text-decoration: none;
+color: #333333;
+}
+.middlelogo{
+    margin: auto;
+    margin-left:-35px
+}
+
+.middlelogo>img{
+    margin: auto;
+    width: 80px;
+    height:60px
+}

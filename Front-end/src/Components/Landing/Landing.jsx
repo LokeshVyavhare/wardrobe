@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import styles from './Landing.module.css'
 import UpparSection from './UpparSection'
+import MiddleSection from './MiddleSection';
 
 
 
@@ -20,13 +21,15 @@ const links = [
 export const Landing = () => {
 
 
-    return <div style={{ height: "auto" }}>
+    return <div style={{ height: "auto" ,marginTop:"200px" }}>
         {/* <h1>Landing</h1> */}
 
         {/* uppar section */}
-        <UpparSection />
-
-        <div className={styles.logo} >
+        {/* <UpparSection />
+        <MiddleSection/> */}
+       
+     
+        <div className={styles.logo} style={{marginTop:"30px",marginLeft:"35px"}}>
             <img src="https://i.postimg.cc/0Nzmz4DK/logo-wrdrb.png" alt="Logo" />
             <p >SHOP FASHION / DESIGN+ART</p>
 
