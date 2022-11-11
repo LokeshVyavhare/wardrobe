@@ -17,17 +17,28 @@ import axios from 'axios'
     password: "password"
 } 
 */
-export const SignIn = (data) =>async (dispatch) => {
+export const SignIn = (data, next, toaster, nav) =>async (dispatch) => {
     dispatch({type:auth_signIn_loading});
+    const {login_success, wrong_email, wrong_password, other} = toaster;
     try{
-        let req = axios.post('https://wardrobe-server.onrender.com/users/signup')
+        let req = await axios.post('https://wardrobe-server.onrender.com/users/login', data)
         if(!req.data.error){
-            dispatch({type:auth_signIn_success, payload:{token:req.data.token, type:"customer"}})
+            dispatch({type:auth_signIn_success, payload:{token:req.data.token, type:req.data.type}});
+            next();
+            nav();
+            login_success();
         }else{
             dispatch({type:auth_signIn_error, payload:req.data.message});
+            if(req.data.message==='Wrong Passwod! Please try again.'){
+                wrong_password();
+            }else if(req.data.message==='No such user present/Invalid email'){
+                wrong_email();
+            }
+            
         }
     }catch(err){
         dispatch({type:auth_signIn_error, payload:err});
+        other(err.message)
     }
 }
 
@@ -40,20 +51,31 @@ export const SignIn = (data) =>async (dispatch) => {
     age:number,
     gender:"male" or "female",
 }
+http://localhost:8080/users/signup
 */
-export const SignUp = (data) =>async (dispatch) => {
+export const SignUp = (data, next, toaster, nav) =>async (dispatch) => {
 
-    data.type="cutomer",
+    const {signup_Success, email_used, other,} =toaster;
     dispatch({type:auth_signUp_loading});
     try{        
-        let req = axios.post('https://wardrobe-server.onrender.com/users/signup')
+        let req =await axios.post('https://wardrobe-server.onrender.com/users/signup', data)
+        
         if(!req.data.error){
-            dispatch({type:auth_signIn_success, payload:{token:req.data.token, type:"customer"}})
+            dispatch({type:auth_signIn_success, payload:{token:req.data.token, type:req.data.type}})
+            signup_Success();
+            next();
+            nav();
         }else{
-            dispatch({type:auth_signIn_error, payload:req.data.message});
+            dispatch({type:auth_signUp_error, payload:req.data.message});
+            if(req.data.message==='Email is already linked to another account.'){
+                email_used();
+            }else{
+                other(req.data.message);
+            }
         }
     }catch(err){
-        dispatch({type:auth_signUp_error});
+        dispatch({type:auth_signUp_error, payload:err});
+        other(err.message);
     }
 }
 

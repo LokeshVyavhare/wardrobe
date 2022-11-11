@@ -16,7 +16,7 @@ import {useSelector} from 'react-redux';
 
 
 export const AddToCart = (id) => async (dispatch) => {
-    const user = useSelector(store=>store.auth.data.token.split('-')[0]);
+    const token = useSelector(store=>store.auth.data.token);
 
     dispatch({type:Cart_Add_Items_Loading})
     if(!token){
@@ -24,6 +24,7 @@ export const AddToCart = (id) => async (dispatch) => {
     }else{
         try{
             let req =await axios.post(`https://wardrobe-server.onrender.com/carts/`, {token})
+            
 
         }catch(err){
             dispatch({type:Cart_Add_Items_Loading, payload:err})

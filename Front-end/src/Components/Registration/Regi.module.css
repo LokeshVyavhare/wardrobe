@@ -1,0 +1,113 @@
+.registerPage *{
+    font-family: 'Montserrat',sans-serif;
+}
+
+/* heading banner */
+
+.banner{
+    font-family: 'Montserrat',sans-serif;
+}
+.banner .bannerTitle{
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.banner .bannerSubTitle{
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.banner .bannertext{
+    font-size: 12px;
+}
+
+
+/* media */
+
+.media{
+    padding: 35px;
+}
+.googleButton, .fbButton{
+    width: 35%;
+    height: 60px;
+    min-width: 300px;
+    padding: 7px 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid rgb(204, 204, 204);
+    margin: 25px auto;
+    transition: 0.4s;
+}
+.fbButton{
+    background-color: #3c55a2;
+    color: #fff;
+}
+.mediaButText{
+    display: none;
+    transition: 0.4s;
+}
+.Mediaimage{
+    display: block;
+    height: 35px;
+    transition: 0.4s;
+}
+.googleButton:hover .Mediaimage, .fbButton:hover .Mediaimage{
+    display: none;
+    transition: 0.4s;
+}
+.googleButton:hover .mediaButText, .fbButton:hover .mediaButText{
+    display: block;
+    font-size: 13px;
+    font-family: 'Montserrat',sans-serif;
+    transition: 0.4s;
+    text-transform: uppercase;
+}
+
+/* Regiform */
+
+.regiForm{
+    width: 100%;
+    margin: auto;
+    border: 1px solid grey;
+    padding: 25px;
+    box-sizing: border-box;
+}
+.regiForm .title{
+    font-size: 14px;
+}
+.regiForm input{
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    padding: 16px;
+    background-color: #f3f3f3;
+    margin: 20px auto;
+    border: none;
+}
+.regiForm input::placeholder{
+    color: #000;
+}
+.regiForm textarea:focus,.regiForm input:focus{
+    outline: none;
+}
+.subButton{
+    border-radius: 7px;
+    padding: 7px 14px;
+    width: 150px;
+    background-color: rgb(247, 170, 4);
+    margin:30px auto;
+}
+.subButton:hover{
+    background-color: rgb(248, 200, 95);
+}
+.subButton:active{
+    background-color: rgb(153, 105, 0);
+    color: #fff;
+}
+
+.subButton:disabled{
+    background-color: rgb(199, 199, 199);
+    color: rgb(0, 0, 0);
+}
