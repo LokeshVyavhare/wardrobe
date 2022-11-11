@@ -1,9 +1,11 @@
 import { Button } from "@chakra-ui/react"
 
 export const Register = () => {
-    return <div >
-         <Button colorScheme='gray' variant='ghost' color="black" marginRight="10px" size='sm'>
-            Register
-        </Button>
-    </div>
+    return (
+        <div style={{marginTop:"200px" ,height:"500px" ,border:"1px solid red"}}>
+
+               <h1>This is register page</h1>
+        </div>
+
+    ) 
 }

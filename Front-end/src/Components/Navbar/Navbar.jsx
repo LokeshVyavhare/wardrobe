@@ -35,6 +35,7 @@ import { NavLink } from 'react-router-dom'
 import styles from '../Landing/MiddleSection.module.css'
 import { Search2Icon } from '@chakra-ui/icons'
 import { BsHeart, BsBagPlus } from "react-icons/bs"
+import { BiLock } from 'react-icons/bi'
 
 
 const links = [
@@ -50,10 +51,11 @@ const links = [
 
 export const Navbar = () => {
     const { isOpen, onToggle } = useDisclosure();
+     
 
 
     return (
-        <div style={{position:"fixed",width:"100%",top:"0"}}>
+        <div style={{ position: "fixed", width: "100%", top: "0",backgroundColor:"white" }}>
             <div >
                 {/* uppar navbar */}
                 <div className="Mbox1" style={{ border: "1px solid gray", borderTop: "none", borderRight: "none", borderLeft: "none", height: "40px", width: "80%", display: "flex", justifyContent: "space-evenly", overflow: "hidden", marginLeft: "10%", backgroundColor: "white" }}>
@@ -83,8 +85,26 @@ export const Navbar = () => {
 
 
                     <div className='Sbox11' style={{ height: "auto", width: "40%", margin: "auto", display: "flex", justifyContent: "flex-end" }}>
-                        <Register />
-                        <Login />
+
+                        <NavLink to="/register">
+                            <Button colorScheme='gray' variant='ghost' color="black" marginRight="10px" size='sm'>
+                                Register
+                            </Button>
+
+                        </NavLink>
+
+
+                        <div style={{ display: "flex" }}>
+                            <BiLock style={{ height: "50px", width: "21%", marginTop: "-10" }} />
+                            <NavLink to="/login">
+                                <Button colorScheme='gray' variant='ghost' color="black" size='sm' >
+                                    Login
+                                </Button>
+
+                            </NavLink>
+
+
+                        </div>
 
                     </div>
 
@@ -102,7 +122,7 @@ export const Navbar = () => {
 
             </div>
 
-    {/* middle start */}
+            {/* middle start */}
             <div>
                 <div style={{ height: "65px", width: "80%", display: "flex", justifyContent: "space-around", marginLeft: "10%", backgroundColor: "white" }}>
                     <Box w="35%">
