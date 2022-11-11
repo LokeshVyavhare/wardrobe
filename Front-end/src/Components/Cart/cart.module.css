@@ -6,7 +6,7 @@
     margin: auto;
     font-size: 15px;
 }
-.cart *{
+.cart h1, .cart h2, .cart h3, .cart h4, .cart p{
     font-family: 'Montserrat',sans-serif;
     
 }
@@ -107,6 +107,34 @@
 
 
 .promoCodeBox{
-    background-color: rgb(228, 228, 228);
+    background-color: #f3f3f3;
 
+}
+.priceList{
+
+}
+
+.priceBox{
+    padding: 25px 35px;
+    text-transform: uppercase;
+    font-family: 'Montserrat',sans-serif;
+    justify-content: space-between;
+}
+
+.orderTotal{
+    border-top: 1px solid grey;
+    border-bottom: 2px solid black;
+    padding: 25px 35px;
+    text-transform: uppercase;
+    font-family: 'Montserrat',sans-serif;
+    justify-content: space-between;
+}
+
+
+
+@media only screen and (min-width:250px) and (max-width:798px){
+    .cart{
+        padding: 10px;
+        width: 95%;
+    }
 }

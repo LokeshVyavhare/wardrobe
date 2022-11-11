@@ -5,6 +5,10 @@ import styled from 'styled-components';
 import CategoryCard from './CategoryCard';
 import Filter from './Filter';
 
+
+
+
+
 const Category = () => {
 const {data, error , loading }= useSelector((store) => store.category);
 const dispatch = useDispatch();
@@ -38,6 +42,10 @@ React.useEffect(() => {
                price= {el.prize}
                />
                </div>
+
+
+
+
 
             ))
          }

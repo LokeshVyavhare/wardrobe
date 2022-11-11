@@ -12,12 +12,12 @@
     margin: auto;
     width: 200px;
     height: 150px;
-    border: 1px solid palegreen;
+    /* border: 1px solid palegreen; */
 }
 .logo{
     
     margin-top: 50px;
-     border: 1px solid palegreen;
+     /* border: 1px solid palegreen; */
      justify-items: center;
 }
 .logo>p{
