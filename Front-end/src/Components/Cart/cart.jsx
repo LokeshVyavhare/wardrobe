@@ -15,13 +15,17 @@ import { useEffect } from "react";
 import { CartItem } from "./CartItem";
 import { RiArrowRightSLine } from 'react-icons/ri'
 import {HiOutlinePlus} from 'react-icons/hi'
+import { GetCartItems } from "../../Redux/Cart/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const cart = data.cart;
 
 export const Cart = () => {
-    const [data, setData] = useState([]);
+    const token = useSelector(store=>store.auth.data.token);
+    const data = useSelector(store=>store.cart.data);
+    const dispatch = useDispatch();
     useEffect(() => {
-        setData(cart);
+        dispatch(GetCartItems(token));
     }, [])
 
 
