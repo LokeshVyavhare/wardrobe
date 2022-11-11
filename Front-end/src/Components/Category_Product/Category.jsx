@@ -1,10 +1,12 @@
 import React from 'react';
 import {useSelector , useDispatch} from "react-redux"
 import { getCategory } from '../../Redux/Category/actions';
-
 import styled from 'styled-components';
 import CategoryCard from './CategoryCard';
 import Filter from './Filter';
+
+
+
 
 
 const Category = () => {
@@ -40,6 +42,9 @@ React.useEffect(() => {
                price= {el.prize}
                />
                </div>
+
+
+
 
 
             ))
