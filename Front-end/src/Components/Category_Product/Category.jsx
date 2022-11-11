@@ -5,17 +5,19 @@ import styled from 'styled-components';
 import CategoryCard from './CategoryCard';
 import Filter from './Filter';
 
-
-
-
-
 const Category = () => {
 const {data, error , loading }= useSelector((store) => store.category);
 const dispatch = useDispatch();
 
 React.useEffect(() => {
     dispatch(getCategory())
-}, [])
+}, []);
+
+if(error){
+  return <h1>...Error</h1>
+}else if(loading){
+  return <h1>...Loading</h1>
+}else
 
   return (
     <div>
