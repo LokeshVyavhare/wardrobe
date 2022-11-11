@@ -8,7 +8,7 @@ import { Register } from '../Registration/Register';
 import { Cart } from '../Cart/cart';
 import { Category } from '../Category_Product/Category';
 import { Product } from '../Product/Product';
-import { Admin } from '../../Admin/Admin';
+import { Admin } from '../Admin/Admin';
 
 
 export const Router = () => {
