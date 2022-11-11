@@ -21,7 +21,7 @@ const initialData = {
     },
     loading:false,
     error:false,
-    errorMessage:""
+    message:""
 }
 export const authReducer= (state=initialData, {type, payload}) => {
     switch(type){
@@ -34,7 +34,7 @@ export const authReducer= (state=initialData, {type, payload}) => {
                 },
                 error:true,
                 loading:false,
-                errorMessage:payload
+                message:payload
             }
         }
         case auth_signIn_loading:{
@@ -46,7 +46,7 @@ export const authReducer= (state=initialData, {type, payload}) => {
                 },
                 error:false,
                 loading:true,
-                errorMessage:""
+                message:""
             }
         }
         case auth_signIn_success:{
@@ -61,7 +61,7 @@ export const authReducer= (state=initialData, {type, payload}) => {
                 },
                 error:false,
                 loading:false,
-                errorMessage:""
+                message:"Logged in Successfully"
             }
         }
         case auth_signUp_error:{
@@ -73,7 +73,7 @@ export const authReducer= (state=initialData, {type, payload}) => {
                 },
                 error:true,
                 loading:false,
-                errorMessage:payload
+                message:payload
             }
         }
         case auth_signUp_loading:{
@@ -85,7 +85,7 @@ export const authReducer= (state=initialData, {type, payload}) => {
                 },
                 error:false,
                 loading:true,
-                errorMessage:""
+                message:""
             }
         }
         case auth_signUp_success:{
@@ -100,7 +100,7 @@ export const authReducer= (state=initialData, {type, payload}) => {
                 },
                 error:false,
                 loading:false,
-                errorMessage:""
+                message:""
             }
         }
         case auth_signOut:{

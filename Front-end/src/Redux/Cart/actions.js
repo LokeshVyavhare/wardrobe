@@ -12,22 +12,39 @@ import {
     Cart_Update_Items_Loading,
     Cart_Update_Items_Success
 } from './actionTypes'
-import {useSelector} from 'react-redux';
+import axios from 'axios';
 
 
-export const AddToCart = (id) => async (dispatch) => {
-    const user = useSelector(store=>store.auth.data.token.split('-')[0]);
+export const GetCartItems = (token) => async (dispatch)=> {
+    dispatch({type:Cart_Get_Items_Loading});
+    const id = token.split("-")[0];
 
-    dispatch({type:Cart_Add_Items_Loading})
-    if(!token){
+    try{
+        let req =await axios.get(`https://wardrobe-server.onrender.com/carts/${id}`, {headers:{token:token}});
+        console.log(req.data)
+        dispatch({type:Cart_Get_Items_Success, payload:req.data});
 
-    }else{
-        try{
-            let req =await axios.post(`https://wardrobe-server.onrender.com/carts/`, {token})
+    }catch(err){
+        dispatch({type:Cart_Get_Items_Error})
+    }
+}
 
-        }catch(err){
-            dispatch({type:Cart_Add_Items_Loading, payload:err})
-        }
+export const AddToCart = (token, productId, quantity=1, delivered=false) => async (dispatch)=> {
+    dispatch({type:Cart_Add_Items_Loading});
+    const id = token.split("-")[0];
+
+    let data = {
+        user:id,
+        product:productId,
+        quantity,
+        delivered
     }
 
+    try{
+        let req =await axios.post(`https://wardrobe-server.onrender.com/carts/${id}`, data, {headers:{token:token}});
+        dispatch({type:Cart_Add_Items_Success, payload:req.data});
+
+    }catch(err){
+        dispatch({type:Cart_Add_Items_Error})
+    }
 }
