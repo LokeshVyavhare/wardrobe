@@ -1,0 +1,122 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.mheading{
+    font-weight: bold;
+}
+.mh{
+    font-weight: 550;
+    text-decoration: underline;
+}
+.mphoto{
+    margin: auto;
+}
+.mwgrid{
+    margin-left: 200px;
+}
+.mwoffer{
+    margin: auto;
+}
+.mtriImg{
+    margin:"auto";
+    padding-top: 130px;
+    
+}
+.mthreeimgoffer{
+   margin-left: 220px;
+   
+}
+.mthreeimgoffer2{
+   margin: auto;
+   
+}
+.mbt{
+    background: none;
+    text-decoration: underline;
+}
+.mbt:hover{
+    color: rgb(62, 211, 70);
+}
+.mcbox{
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    position:absolute;
+    left:575px;
+    top: 830px;
+    z-index: 1;
+    
+    
+
+}
+
+.mf{
+    list-style: none;
+}
+.ml{
+    list-style: none;
+    text-decoration: underline;
+    margin-top: 45px;
+}
+
+.mlistitem{
+    list-style: none;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.mlistitem:hover, h1:hover, a:hover {
+    color: rgb(221, 124, 126);
+  }
+
+  .sl1{
+    padding-top: 70px;
+    background-color: #fafafa;
+  }
+  .msl11{
+    padding: 150px 50px 150px 50px;
+  }
+  .msl11 a{
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  .msll1{
+    padding-top: 100px;
+    padding: 50px 50px 50px 50px;
+  }
+  .msld{
+    background-color: #f4eded;
+  }
+
+.mmainP{
+    width: 90%;
+    display: flex;
+    align-items: center;
+   
+    margin: auto;
+    margin-top: 80px;
+    justify-content:space-around;
+    gap: 20px;
+   
+}
+
+.mac {
+    text-decoration: none;
+    color: red;
+  }
+  
+  .mde {
+    text-decoration: none;
+    color: black;
+  }
+
+.mg3img{
+   margin: auto;
+   padding-top: 100px;
+    
+}
+.mlimg{
+    padding-top: 100px;
+}
