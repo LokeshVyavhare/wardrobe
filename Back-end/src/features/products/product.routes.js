@@ -1,6 +1,6 @@
 const express = require("express");
 const Product = require("./product.model");
-
+const authMiddleWare = require("../../authMiddleware/authMiddleware")
 const app = express.Router();
 
 
@@ -106,7 +106,10 @@ app.get("/" , async (req,res) => {
     
 // })
 
-app.post("/" , async (req,res) => {
+app.post("/" ,authMiddleWare, async (req,res) => {
+    if(req.userType!=="seller"){
+        return res.status(401).send("you dont have authorization to add product");
+    }
     try {
         let product = await Product.create({
             ...req.body
