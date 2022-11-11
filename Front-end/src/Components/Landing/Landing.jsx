@@ -5,7 +5,6 @@ import styles from './Landing.module.css'
 import UpparSection from './UpparSection'
 
 
-
 const links = [
 
 
@@ -25,6 +24,9 @@ export const Landing = () => {
 
         {/* uppar section */}
         <UpparSection />
+       
+        
+
 
         <div className={styles.logo} >
             <img src="https://i.postimg.cc/0Nzmz4DK/logo-wrdrb.png" alt="Logo" />

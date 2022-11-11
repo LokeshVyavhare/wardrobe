@@ -6,6 +6,7 @@ import {Router} from './Components/Router/Router'
 function App() {
   return (
     <div className="App">
+      
       <Navbar />
       <Router />
       <Footer />
