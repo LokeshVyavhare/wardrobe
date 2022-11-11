@@ -13,30 +13,34 @@ import {
 import { FaTape } from "react-icons/fa";
 import axios from "axios";
 import { useEffect, useState } from "react";
-const getData = async (id) => {
-  let { data } = await axios.get(`http://locahost:8080/products/${id}`);
-};
-export const Product = ({ productId }) => {
+import { useParams } from "react-router-dom";
+export const Product = () => {
   const [product, setProduct] = useState({});
+  const { id } = useParams();
 
   useEffect(() => {
-    setProduct(getData(productId));
+    const getData = async (id) => {
+      console.log(id);
+      let { data } = await axios.get(`http://localhost:8080/products/${id}`);
+      setProduct(data);
+    };
+    getData(id);
   }, []);
   return (
     <Box>
       <Box w="60%" m="auto">
         <Flex direction={["column", "row", "row", "row "]} gap={16}>
           <Box>
-            <Image src="https://www.yoox.com/images/items/14/14206630GX_14_f.jpg?impolicy=crop&width=387&height=490" />
+            <Image src={product.image1} />
           </Box>
 
           <Box>
             <VStack align="start" mt={16}>
               <Text as="b" fontSize="20px">
-                Maje
+                {product.name}
               </Text>
-              <Text fontSize="16px">Cardigan</Text>
-              <Text py={6}> ₹ 480</Text>
+              <Text fontSize="16px">{product.tag}</Text>
+              <Text py={6}> ₹ {product.prize}</Text>
               <Text border="1px" py={3} px={1}>
                 Need more help? View the Size Guide
               </Text>
@@ -47,7 +51,12 @@ export const Product = ({ productId }) => {
                 </HStack>
               </Box>
 
-              <Button fontWeight="light" w="100%" marginY={3}>
+              <Button
+                fontWeight="light"
+                w="100%"
+                marginY={3}
+                onClick={() => {}}
+              >
                 ADD TO SHOPPING BAG
               </Button>
               <Button fontWeight="light" w="100%" marginY={3}>
@@ -56,8 +65,6 @@ export const Product = ({ productId }) => {
             </VStack>
           </Box>
         </Flex>
-
-        {/* recommendations */}
         <SimpleGrid
           my={12}
           columns={["1", "1", "1", "2", "2"]}
