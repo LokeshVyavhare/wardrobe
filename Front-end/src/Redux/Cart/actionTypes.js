@@ -1,0 +1,12 @@
+export const Cart_Get_Items_Loading = 'cart/get/loading';
+export const Cart_Get_Items_Error = 'cart/get/error';
+export const Cart_Get_Items_Success = 'cart/get/success';
+export const Cart_Add_Items_Loading = 'cart/Add/loading';
+export const Cart_Add_Items_Error = 'cart/Add/error';
+export const Cart_Add_Items_Success = 'cart/Add/success';
+export const Cart_Update_Items_Loading = 'cart/Update/loading';
+export const Cart_Update_Items_Error = 'cart/Update/error';
+export const Cart_Update_Items_Success = 'cart/Update/success';
+export const Cart_Delete_Items_Loading = 'cart/Delete/loading';
+export const Cart_Delete_Items_Error = 'cart/Delete/error';
+export const Cart_Delete_Items_Success = 'cart/Delete/success';

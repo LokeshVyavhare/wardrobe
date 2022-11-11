@@ -6,8 +6,8 @@
 1) Landing page:-Shivang
 2) Mens/Womens/Kids page :- Suraj
 3) Navbar, footer:-Shivang
-4) Product page:- (Abhijeet, Soumya)
-5) Category page:- (Abhijeet, Soumya)
+4) Product page:- Abhijeet
+5) Category page:- Somya
 6) Cart page, Checkout page:-Lokesh
 7) Registastion, Login page:-Shivang
 8) Admin Page:- Lokesh
@@ -59,7 +59,7 @@ routes :-
         c)tags:get
 
 
-//Cart: (''''')
+//Cart: Abhijeet
 
 cart Schema:{
     productid:{

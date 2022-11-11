@@ -8,6 +8,7 @@ import {
     auth_signUp_success
 
 } from './actionTypes'
+import axios from 'axios'
 
 
 /*
@@ -19,16 +20,38 @@ import {
 export const SignIn = (data) =>async (dispatch) => {
     dispatch({type:auth_signIn_loading});
     try{
-        dispatch({type:auth_signIn_success, payload:{token:"token", type:"user/admin"}})
+        let req = axios.post('https://wardrobe-server.onrender.com/users/signup')
+        if(!req.data.error){
+            dispatch({type:auth_signIn_success, payload:{token:req.data.token, type:"customer"}})
+        }else{
+            dispatch({type:auth_signIn_error, payload:req.data.message});
+        }
     }catch(err){
-        dispatch({type:auth_signIn_error});
+        dispatch({type:auth_signIn_error, payload:err});
     }
 }
 
+
+/*
+{
+    email:string, *
+    password:string, *
+    name:string, *
+    age:number,
+    gender:"male" or "female",
+}
+*/
 export const SignUp = (data) =>async (dispatch) => {
+
+    data.type="cutomer",
     dispatch({type:auth_signUp_loading});
-    try{
-        dispatch({type:auth_signUp_success, payload:"token"})
+    try{        
+        let req = axios.post('https://wardrobe-server.onrender.com/users/signup')
+        if(!req.data.error){
+            dispatch({type:auth_signIn_success, payload:{token:req.data.token, type:"customer"}})
+        }else{
+            dispatch({type:auth_signIn_error, payload:req.data.message});
+        }
     }catch(err){
         dispatch({type:auth_signUp_error});
     }
