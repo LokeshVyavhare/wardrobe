@@ -78,10 +78,26 @@
     border-radius: 7px;
 }
 
+.sectionAA1{
+    margin: 20px auto 0;
+    align-items: center;
+    justify-content: space-between;
+}
+.sectionAA1 label{
+    width: 50%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+.sectionAA1 label input{
+    width: 80%;
+    margin-right: 20px;
+}
+
 .sectionA2{
     width: 25%;
     padding: 15px 30px;
-    height: 200px;
+    height: 250px;
     overflow: scroll;
 }
 
@@ -115,4 +131,11 @@
 .previewBox button:active{
     background-color: rgb(0, 0, 0);
     color: #fff;
+}
+.sectionA2 {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.sectionA2::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
