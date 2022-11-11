@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const DB_URL = process.env.MONGODB_URL
 
-const connect = async () => mongoose.connect(`mongodb://127.0.0.1:27017/yoox`);
+const connect = async () => mongoose.connect(DB_URL);
 module.exports = connect;
