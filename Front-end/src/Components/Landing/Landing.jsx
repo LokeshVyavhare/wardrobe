@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react';
+import { Button, SimpleGrid } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import styles from './Landing.module.css'
@@ -35,7 +35,9 @@ export const Landing = () => {
 
         </div>
 
-        <div className={styles.mainPages}>
+        {/* <SimpleGrid  columns={{ base: 1, sm: 2, md: 4 }}> */}
+
+        <SimpleGrid className={styles.mainPages} columns={{ base: 1, sm: 2, md: 4 }}>
             {links.map((link) => (
                 <NavLink
 
@@ -69,7 +71,9 @@ export const Landing = () => {
 
 
 
-        </div>
+        {/* </div> */}
+    
+        </SimpleGrid>
 
         {/* <Footer/> */}
 
