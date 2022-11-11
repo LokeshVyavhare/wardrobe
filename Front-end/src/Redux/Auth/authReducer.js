@@ -1,3 +1,4 @@
+import { getLocalStorage, setLocalStorage } from '../localStorage'
 import {
     auth_signIn_error,
     auth_signIn_loading,
@@ -9,14 +10,18 @@ import {
 
 } from './actionTypes'
 
+const iniToken = getLocalStorage('token');
+const iniType = getLocalStorage('typeWardRobe');
+
 const initialData = {
     data:{
-        isAuth:false,
-        token: null,
-        type: null,
+        isAuth:!!iniToken,
+        token: iniToken,
+        type: iniType,
     },
     loading:false,
     error:false,
+    errorMessage:""
 }
 export const authReducer= (state=initialData, {type, payload}) => {
     switch(type){
@@ -28,7 +33,8 @@ export const authReducer= (state=initialData, {type, payload}) => {
                     token: null
                 },
                 error:true,
-                loading:false
+                loading:false,
+                errorMessage:payload
             }
         }
         case auth_signIn_loading:{
@@ -39,10 +45,13 @@ export const authReducer= (state=initialData, {type, payload}) => {
                     token: null
                 },
                 error:false,
-                loading:true
+                loading:true,
+                errorMessage:""
             }
         }
         case auth_signIn_success:{
+            setLocalStorage('token', payload.token)
+            setLocalStorage('typeWardRobe', payload.type)
             return{
                 ...state,
                 data:{
@@ -51,7 +60,8 @@ export const authReducer= (state=initialData, {type, payload}) => {
                     type: payload.type
                 },
                 error:false,
-                loading:false
+                loading:false,
+                errorMessage:""
             }
         }
         case auth_signUp_error:{
@@ -62,7 +72,8 @@ export const authReducer= (state=initialData, {type, payload}) => {
                     token: null
                 },
                 error:true,
-                loading:false
+                loading:false,
+                errorMessage:payload
             }
         }
         case auth_signUp_loading:{
@@ -73,10 +84,13 @@ export const authReducer= (state=initialData, {type, payload}) => {
                     token: null
                 },
                 error:false,
-                loading:true
+                loading:true,
+                errorMessage:""
             }
         }
         case auth_signUp_success:{
+            setLocalStorage('token', payload.token)
+            setLocalStorage('typeWardRobe', payload.type)
             return{
                 ...state,
                 data:{
@@ -85,7 +99,8 @@ export const authReducer= (state=initialData, {type, payload}) => {
                     type: "user"
                 },
                 error:false,
-                loading:false
+                loading:false,
+                errorMessage:""
             }
         }
         case auth_signOut:{
