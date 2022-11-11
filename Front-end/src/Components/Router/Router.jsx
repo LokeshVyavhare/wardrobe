@@ -8,6 +8,7 @@ import { Register } from '../Registration/Register';
 import { Cart } from '../Cart/cart';
 import { Category } from '../Category_Product/Category';
 import { Product } from '../Product/Product';
+import { Admin } from '../../Admin/Admin';
 
 
 export const Router = () => {
@@ -21,5 +22,6 @@ export const Router = () => {
         <Route path='/cart' element={<Cart/>}></Route>
         <Route path='/category/:category' element={<Category/>}></Route>
         <Route path='/product/:id' element={<Product/>}></Route>
+        <Route path='/admin' element={<Admin/>}></Route>
     </Routes>
 }
