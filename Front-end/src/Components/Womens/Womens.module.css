@@ -3,6 +3,7 @@
     padding: 0px;
 }
 
+
 .heading{
     font-weight: bold;
 }
@@ -16,23 +17,41 @@
 .wgrid{
     margin-left: 200px;
 }
+.woffer{
+    margin: auto;
+}
 .triImg{
     margin:"auto";
-    padding-top: 150px;
+    padding-top: 130px;
     
+}
+.threeimgoffer{
+   margin-left: 220px;
+   
+}
+.threeimgoffer2{
+   margin: auto;
+   
+}
+.bt{
+    background: none;
+    text-decoration: underline;
+}
+.bt:hover{
+    color: rgb(62, 211, 70);
 }
 .cbox{
 
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     position:absolute;
-    bottom: 0px;
     left:575px;
-    bottom: 250px;
+    top: 830px;
     z-index: 1;
     
     
 
 }
+
 .f{
     list-style: none;
 }
@@ -47,4 +66,57 @@
     font-size: 15px;
     font-weight: bold;
     margin-top: 15px;
+}
+.listitem:hover, h1:hover, a:hover {
+    color: rgb(221, 124, 126);
+  }
+
+  .sl1{
+    padding-top: 70px;
+    background-color: #fafafa;
+  }
+  .sl11{
+    padding: 150px 50px 150px 50px;
+  }
+  .sl11 a{
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  .sll1{
+    padding-top: 100px;
+    padding: 50px 50px 50px 50px;
+  }
+  .sld{
+    background-color: #f4eded;
+  }
+
+.mainP{
+    width: 90%;
+    display: flex;
+    align-items: center;
+   
+    margin: auto;
+    margin-top: 80px;
+    justify-content:space-around;
+    gap: 20px;
+   
+}
+
+.ac {
+    text-decoration: none;
+    color: red;
+  }
+  
+  .de {
+    text-decoration: none;
+    color: black;
+  }
+
+.g3img{
+   margin: auto;
+   padding-top: 100px;
+    
+}
+.limg{
+    padding-top: 100px;
 }

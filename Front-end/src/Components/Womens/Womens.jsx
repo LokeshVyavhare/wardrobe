@@ -9,8 +9,23 @@ import {
     Button,
     Grid,
     GridItem,
-
+    Center,
 } from "@chakra-ui/react"
+
+import { NavLink } from 'react-router-dom'
+import Sliderr from "./Slider"
+import Sliderr2 from "./Slider2"
+const wlinkp = [
+    {
+        path: "", title: "HUGO", subtitle: "Express yourself", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_1_Hugo_Tris_W.jpg?634485886869569819#width=473&height=660"
+    },
+    {
+        path: "", title: "MONTBLANG", subtitle: "It's gifting season!", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_6_Montblanc_W_Tris.jpg?634485886869569819#width=473&height=660"
+    },
+    {
+        path: "", title: "FURLA", subtitle: "FALL/WINTER 2022 COLLECTION", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_5_Furla_W_Tris.jpg?634485886869569819#width=473&height=660"
+    }
+]
 
 export const Womens = () => {
     return (
@@ -40,7 +55,7 @@ export const Womens = () => {
                     </Box>
 
                 </Flex>
-                <Box className={style.cbox} bg='white' w='343.5px' h="553" p={4} color='black' margin="auto">
+                <Box className={style.cbox} bg='white' w='343.5px' h="553" p={4} color='black'>
                     <OrderedList className={style.listi}>
                         <ListItem className={style.f}><h3>DESIGNERS</h3></ListItem>
                         <ListItem className={style.listitem}><a href=''><h2>DOLCE & GABBANA</h2></a></ListItem>
@@ -58,43 +73,109 @@ export const Womens = () => {
                     </OrderedList>
                 </Box>
 
-                <Flex color='white' className={style.wgrid}>
+                <Flex color='white' className={style.woffer}>
 
-                    <Box boxSize='full'>
+                    <Box className={style.threeimgoffer}>
 
-                        <Heading color="black"><a href=''>UP TO 70%,80%,&90% OFF</a></Heading>
+                        <Heading size="lg" color="black"><a href=''>UP TO 70%,80%,&90% OFF</a></Heading>
                         <Heading size="sm" color='blackAlpha.500'><a href="">Ends November 30th</a></Heading>
-                        <Button color="black" border="none">SHOP NOW</Button>
+                        <Button className={style.bt} color="black" border="none">SHOP NOW</Button>
 
                     </Box>
 
-                    <Box boxSize='full'>
+                    <Box className={style.threeimgoffer2}>
 
-                        <Heading color="black"><a href=''>COOL COATS</a></Heading>
+                        <Heading size="lg" color="black" ><a href=''>COOL COATS</a></Heading>
                         <Heading size="sm" color='blackAlpha.500'><a href="">Puffer Jackets and more to keep you warm</a></Heading>
-                        <Button color="black" border="none">SHOP NOW</Button>
+                        <Button className={style.bt} color="black" border="none">SHOP NOW</Button>
 
 
                     </Box>
 
                 </Flex>
             </Box>
+            <Box className={style.sl1}>
+                <Grid templateColumns='repeat(2, 1fr)' gap={0}>
 
-            <Grid templateColumns='repeat(2, 1fr)' gap={6}>
+                    <Box className={style.sl11} w='350px' h='533.66'>
+                        <Box className={style.sll1}  >
+                            <p>NEW ARRIVALS</p>
+                            <p><a href=''>VIEW ALL</a></p>
+                        </Box>
 
-                <Box w='350px' h='533.66' bg='' border="2px">
+                    </Box>
+                    <Box w='1035px' h='533.66' bg='' className={style.sld}>
+                        <Sliderr />
+                    </Box>
 
-                <p>NEW ARRIVALS</p>
-                <p>VIEW ALL</p>
-                
+                </Grid>
+            </Box>
+
+            {/*threeIMG SEction*/}
+            <Box >
+                <div className={style.mainP}>
+                    {wlinkp.map((wlinkp) => (
+                        <NavLink
+
+                            className={({ isActive }) => {
+                                return isActive ? style.ac : style.de;
+                            }}
+                            key={wlinkp.path}
+                            to={wlinkp.path}
+                            end
+                        >
+
+                            <img src={wlinkp.imgLink} alt="" />
+                            <div style={{ backgroundColor: "", height: "35px" }}></div>
+                            <div style={{ backgroundColor: "", height: "35px", color: "black", fontWeight: "bold" }}>
+                                <p > {wlinkp.title}</p>
+                            </div>
+                            <div style={{ backgroundColor: "", height: "55px", color: "black" }}>
+                                <p > {wlinkp.subtitle}</p>
+                            </div>
+                        </NavLink>
+
+                    ))}
+
+                </div>
+            </Box>
+
+            <Box className={style.sl1}>
+                <Grid templateColumns='repeat(2, 1fr)' gap={0}>
+
+                    <Box className={style.sl11} w='350px' h='533.66'>
+                        <Box className={style.sll1}  >
+                            <p>ONE OF KIND</p>
+                            <p><a href=''>VIEW ALL</a></p>
+                        </Box>
+
+                    </Box>
+                    <Box w='1035px' h='533.66' bg='' className={style.sld}>
+                        <Sliderr2 />
+                    </Box>
+
+                </Grid>
+            </Box>
+            <Box boxSize='full'w="60%" className={style.g3img}>
+                <Box h="90vh">
+                    <Image src='https://www.yoox.com/images/yoox80/banners/6833_1_8byYoox_Special_WM.png?634485886869569819#width=930&height=660' alt='The Grand' />
                 </Box>
-                <Box w='1035px' h='533.66' bg='' border="2px">
-                
-                </Box>
+            </Box>
 
-            </Grid>
+            <Box boxSize="full" w="90%" margin="auto" className={style.limg} >
+                <Grid templateColumns='repeat(2, 1fr)'>
+                    <Box boxSize='full'>
+                        <Image src='https://www.yoox.com/images/yoox80/banners/6769_1_DesignArtHomedecor_WM_Bottom.png?634485886869569819#width=690&height=637' alt='The Grand' />
+                    </Box>
+                    <Box boxSize='full'>
+                        <Image src='https://www.yoox.com/images/yoox80/banners/6895_1_GenZ_W_Bottom.jpg?634485886869569819#width=690&height=637' alt='The Grand' />
+                    </Box>
+                </Grid>
+
+            </Box>
 
         </Box>
+
 
 
 
