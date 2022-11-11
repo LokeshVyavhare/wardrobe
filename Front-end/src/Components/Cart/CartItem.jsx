@@ -10,7 +10,7 @@ import style from './cart.module.css'
 
 export const CartItem = ({data}) => {
     const {id, name, image1, category, prize, tags, count} = data;
-    return <Flex justify={'space-around'} align={'center'} mb={'25px'}>
+    return <Flex justify={'space-around'} align={'center'}  direction={['column', 'column', 'row']} mb={['35px', '35px', '25px']}>
             <Box>
                 <Image src={image1} width='100px'/>
             </Box>
