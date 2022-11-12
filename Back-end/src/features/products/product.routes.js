@@ -50,7 +50,7 @@ app.get("/:id", async (req, res) => {
 // });
 
 app.get("/" , async (req,res) => {
-    const {limit=5 , page=1} = req.query;
+    const {limit=6 , page=1} = req.query;
     const category = req.query.category;
     const tags = req.query.tags;
     try {
