@@ -64,17 +64,18 @@
     border-radius: 50%;
     background: #000;
     color: #fff;
-    margin: auto -5px;
-    position: relative;
-    z-index: 5;
 }
 .cartCountbutton:active{
     background: rgb(95, 95, 95);
 }
 .cartCount{
-    padding: 5px 25px;
+    width: 100px;
     background-color: rgb(225,225,225);
     z-index: 1;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 0;
+    border-radius: 12px;
 }
 .shippingList{
     margin: 25px auto;
