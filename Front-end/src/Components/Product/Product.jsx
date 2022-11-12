@@ -27,7 +27,7 @@ export const Product = () => {
     if (!token) {
       return navigate("/login");
     }
-    return dispatch(AddToCart(id, token));
+    dispatch(AddToCart(token, id));
   };
 
   // "_id": "636e7e01d81cbbad4a8c9bd5",
