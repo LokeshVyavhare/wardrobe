@@ -8,6 +8,7 @@ import {
   Image,
   SimpleGrid,
   Text,
+  useToast,
   VStack,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,12 +23,35 @@ export const Product = () => {
   const { token } = useSelector((store) => store.auth.data);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const toast = useToast();
+
+  const cartSuccess = () =>
+    toast({
+      title: "Success",
+      description: "Item added in cart.",
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
+
+  const cartFailure = () =>
+    toast({
+      title: "Failed",
+      description: "Sorry! We couldnt add the item to the cart.Try again",
+      status: "error",
+      duration: 9000,
+      isClosable: true,
+    });
+  const toaster = {
+    cartSuccess,
+    cartFailure,
+  };
 
   const handleCart = (id) => {
     if (!token) {
       return navigate("/login");
     }
-    dispatch(AddToCart(token, id));
+    dispatch(AddToCart(token, id, toaster));
   };
 
   // "_id": "636e7e01d81cbbad4a8c9bd5",
