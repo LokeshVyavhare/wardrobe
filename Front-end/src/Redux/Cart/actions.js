@@ -43,7 +43,8 @@ export const AddToCart = (token, productId, quantity=1, delivered=false) => asyn
     }
 
     try{
-        let req =await axios.post(`https://wardrobe-server.onrender.com/carts`, data, {headers:{token:token}});
+
+        let req =await  axios.post(`https://wardrobe-server.onrender.com/carts`,  data, {headers:{token:token}});
         dispatch({type:Cart_Add_Items_Success, payload:req.data});
 
     }catch(err){
