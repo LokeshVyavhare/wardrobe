@@ -44,12 +44,7 @@ if(error){
                price= {el.prize}
                />
                </div>
-
-
-
-
-
-            ))
+         ))
          }
         </WrapperProducts>
 
@@ -64,17 +59,15 @@ display : flex;
 height : auto;
 width : 70%;
 margin : auto;
+margin-top:200px;
 `;
 
 const WrapperFilter = styled.div`
-width : 200px;
-border : 1px solid black;
+width : 300px;
 `;
 
 const WrapperProducts = styled.div`
 width : 100%;
-border: 1px solid blue;
-
 display : grid;
 grid-template-columns : repeat(auto-fit, minmax(200px,max-content));
 justify-content : center;

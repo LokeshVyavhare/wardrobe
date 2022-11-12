@@ -4,7 +4,7 @@ import { CATEGORY_ERROR, CATEGORY_LOADING, CATEGORY_SUCCESS } from "./actionType
 export const getCategory = () => async (dispatch) => {
     dispatch({type : CATEGORY_LOADING});
     try {
-        let response = await axios.get("http://localhost:8100/products");
+        let response = await axios.get("https://wardrobe-server.onrender.com/products");
         dispatch({type:CATEGORY_SUCCESS , payload : response.data});
         console.log(response.data)
         return response.data;
