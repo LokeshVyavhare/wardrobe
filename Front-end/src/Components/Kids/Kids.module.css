@@ -4,93 +4,64 @@
 }
 
 
-.mheading{
+.kheading{
     font-weight: bold;
+    
 }
-.mh{
+.kheading>a:hover{
+  color: #141313;
+}
+.kh{
+  font-size: 15px;
     font-weight: 550;
-    text-decoration: underline;
+    text-decoration: none;
 }
-.mphoto{
+
+.kh:hover{
+  color: #141313;
+}
+.kphoto{
     margin: auto;
 }
-.mwgrid{
-    margin-left: 200px;
+.imgb1{
+  position: absolute;
+  left: 100px;
+  top: 500px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-.mwoffer{
-    margin: auto;
-}
-.mtriImg{
-    margin:"auto";
-    padding-top: 130px;
-    
-}
-.mthreeimgoffer{
-   margin-left: 220px;
-   
-}
-.mthreeimgoffer2{
-   margin: auto;
-   
-}
-.mbt{
-    background: none;
-    text-decoration: underline;
-}
-.mbt:hover{
-    color: rgb(62, 211, 70);
-}
-.mcbox{
-
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    position:absolute;
-    left:575px;
-    top: 830px;
-    z-index: 1;
-    
-    
-
+.shopb{
+  display: flex;
+  margin-left: 120px;
+  text-decoration: underline;
 }
 
-.mf{
-    list-style: none;
-}
-.ml{
-    list-style: none;
-    text-decoration: underline;
-    margin-top: 45px;
-}
 
-.mlistitem{
-    list-style: none;
-    font-size: 15px;
-    font-weight: bold;
-    margin-top: 15px;
-}
-.mlistitem:hover, h1:hover, a:hover {
-    color: rgb(221, 124, 126);
-  }
-
-  .sl1{
+  .ksl1{
     padding-top: 70px;
     background-color: #fafafa;
   }
-  .msl11{
+  .ksl11{
     padding: 150px 50px 150px 50px;
   }
-  .msl11 a{
+  .ksl11 a{
     font-weight: bold;
     text-decoration: underline;
   }
-  .msll1{
+  .ksll1{
     padding-top: 100px;
     padding: 50px 50px 50px 50px;
+    
   }
-  .msld{
+  .ksll1>p{
+    font-size: 18px;
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .ksld{
     background-color: #f4eded;
   }
 
-.mmainP{
+.kmainP{
     width: 90%;
     display: flex;
     align-items: center;
@@ -102,21 +73,34 @@
    
 }
 
-.mac {
+.kac {
     text-decoration: none;
     color: red;
   }
   
-  .mde {
+  .kde {
     text-decoration: none;
     color: black;
   }
 
-.mg3img{
+.kg3img{
    margin: auto;
    padding-top: 100px;
     
 }
-.mlimg{
+.klimg{
     padding-top: 100px;
+}
+.imgb2{
+
+  position: absolute;
+  left: 100px;
+  bottom: 800px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  padding: 30px 0px 0px 0px;
+}
+.shopb1{
+  display: flex;
+  margin-left: 120px;
+  text-decoration: underline;
 }
