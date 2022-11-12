@@ -15,6 +15,7 @@ export const CartItem = ({data}) => {
     const {id, name, image1, category, price, tags} = product;
     const dispatch = useDispatch()
     const token = useSelector(store=>store.auth.data.token);
+    
 
     const addCount = ()=>{
         dispatch(updateCartItem(token, _id, quantity+1))
@@ -38,13 +39,13 @@ export const CartItem = ({data}) => {
             </Box>
             <Box>
                 <Flex className={style.cartCount}>
-                    {quantity>=2?<button className={style.cartCountbutton} onClick={decCount}>-</button>:""}
+                    <Box className={style.cartCountbuttonBox}>{quantity>=2?<button className={style.cartCountbutton} onClick={decCount}>-</button>:""}</Box>
                     <span>{quantity}</span>
-                    {quantity<=9?<button className={style.cartCountbutton} onClick={addCount}>+</button>:""}
+                    <Box className={style.cartCountbuttonBox}>{quantity<=9?<button className={style.cartCountbutton} onClick={addCount}>+</button>:""}</Box>
                 </Flex>
             </Box>
             <Box>
-                <Text fontWeight={700}>$ {price}</Text>
+                <Text fontWeight={700}>$ {price*quantity}</Text>
             </Box>
     </Flex>
 }

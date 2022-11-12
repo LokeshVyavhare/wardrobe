@@ -17,6 +17,7 @@ const initialData = {
     data:[],
     loading:false,
     error:false,
+    total:0
 }
 export const cartReducer= (state=initialData, action) => {
     switch(action.type){
@@ -72,11 +73,14 @@ export const cartReducer= (state=initialData, action) => {
                 }
                 return item;
             }))
+
+            const newTotal1 = newDat.reduce((sum, item)=>sum+item.product.price);
             return({
                 ...state,
                 data:newDat,
                 loading:false,
                 error:false,
+                total:newTotal1
             })
         }
         case Cart_Update_Items_Error:{
