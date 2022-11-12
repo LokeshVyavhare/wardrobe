@@ -10,7 +10,8 @@ import {
     Cart_Get_Items_Success,
     Cart_Update_Items_Error,
     Cart_Update_Items_Loading,
-    Cart_Update_Items_Success
+    Cart_Update_Items_Success,
+    Empty_Cart
 } from './actionTypes'
 
 const initialData = {
@@ -96,6 +97,14 @@ export const cartReducer= (state=initialData, action) => {
                 loading:true,
                 error:false,
             })
+        }
+        case Empty_Cart:{
+            return {
+                data:[],
+                loading:false,
+                error:false,
+                total:0
+            }
         }
         default:{
             return state

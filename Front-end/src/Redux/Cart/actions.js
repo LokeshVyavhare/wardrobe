@@ -10,7 +10,8 @@ import {
     Cart_Get_Items_Success,
     Cart_Update_Items_Error,
     Cart_Update_Items_Loading,
-    Cart_Update_Items_Success
+    Cart_Update_Items_Success,
+    Empty_Cart
 } from './actionTypes'
 import axios from 'axios';
 
@@ -31,7 +32,7 @@ export const GetCartItems = (token) => async (dispatch)=> {
 
 export const AddToCart = (token, productId, toaster,  quantity=1, delivered=false) => async (dispatch)=> {
 
-    console.log( token, 'token')
+    const {cartSuccess, cartFailure} = toaster
     dispatch({type:Cart_Add_Items_Loading});
     const id = token.split("-")[0];
 
@@ -46,10 +47,11 @@ export const AddToCart = (token, productId, toaster,  quantity=1, delivered=fals
 
         let req =await  axios.post(`https://wardrobe-server.onrender.com/carts`,  data, {headers:{token:token}});
         dispatch({type:Cart_Add_Items_Success, payload:req.data});
-        alert('item added to cart')
+        cartSuccess()
 
     }catch(err){
         dispatch({type:Cart_Add_Items_Error})
+        cartFailure();
     }
 }
 
@@ -71,4 +73,8 @@ export const updateCartItem = (token, cartId, quantity) => async (dispatch)=> {
         dispatch({type:Cart_Update_Items_Error})
         alert(err.message)
     }
+}
+
+export const empty_Cart = () => {
+    return {type: Empty_Cart}
 }

@@ -133,6 +133,33 @@
 }
 
 
+.checkoutPage{
+    background-color: rgb(201, 201, 201);
+    width: 100%;
+}
+
+
+.checkoutPage1{
+    justify-content: space-around;
+    padding: 35px 10px;
+
+
+}
+.details{
+
+}
+
+.checkout{
+
+}
+
+.empty{
+    height: 70vh;
+    width: 100%;
+    background: #f3f3f3;
+}
+
+
 
 @media only screen and (min-width:250px) and (max-width:798px){
     .cart{
