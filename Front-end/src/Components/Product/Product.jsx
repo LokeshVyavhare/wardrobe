@@ -10,24 +10,48 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
 import { FaTape } from "react-icons/fa";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { AddToCart } from "../../Redux/Cart/actions";
 export const Product = () => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
+  const { token } = useSelector((store) => store.auth.data);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleCart = (id) => {
+    if (!token) {
+      return navigate("/login");
+    }
+    return dispatch(AddToCart(id, token));
+  };
+
+  // "_id": "636e7e01d81cbbad4a8c9bd5",
+  // "name": "MM6 MAISON MARGIELA",
+  // "image1": "https://www.yoox.com/images/items/50/50291958CE_14_f.jpg?impolicy=crop&width=387&height=490",
+  // "image2": "https://www.yoox.com/images/items/50/50291958CE_14_f.jpg?impolicy=crop&width=387&height=490",
+  // "description": "Item made in Italy, synonymous with quality and design creativity.",
+  // "price": 144,
+  // "category": "men",
+  // "tags": "jwellery"
+  // },
 
   useEffect(() => {
     const getData = async (id) => {
       console.log(id);
-      let { data } = await axios.get(`http://localhost:8080/products/${id}`);
+      let { data } = await axios.get(
+        `https://wardrobe-server.onrender.com/products/${id}`
+      );
       setProduct(data);
     };
     getData(id);
   }, []);
   return (
-    <Box>
+    <Box mt="150px">
       <Box w="60%" m="auto">
         <Flex direction={["column", "row", "row", "row "]} gap={16}>
           <Box>
@@ -39,8 +63,10 @@ export const Product = () => {
               <Text as="b" fontSize="20px">
                 {product.name}
               </Text>
-              <Text fontSize="16px">{product.tag}</Text>
-              <Text py={6}> ₹ {product.prize}</Text>
+              <Text fontSize="16px" align="start">
+                {product.tags}
+              </Text>
+              <Text py={6}> ₹ {product.price}</Text>
               <Text border="1px" py={3} px={1}>
                 Need more help? View the Size Guide
               </Text>
@@ -55,7 +81,7 @@ export const Product = () => {
                 fontWeight="light"
                 w="100%"
                 marginY={3}
-                onClick={() => {}}
+                onClick={() => handleCart(id)}
               >
                 ADD TO SHOPPING BAG
               </Button>
@@ -142,44 +168,44 @@ export const Product = () => {
         </Text>
         <SimpleGrid columns={["1", "1", "1", "5", "5"]}>
           <VStack>
-            <Image src="https://www.yoox.com/images/items/14/14206630GX_14_f.jpg?impolicy=crop&width=387&height=490" />
+            <Image src="https://www.yoox.com/images/items/16/16176231CO_14_f.jpg?impolicy=crop&width=306&height=390" />
             <Text as="b" fontSize="20px">
-              Tory Bruch
+              MONCLER
             </Text>
-            <Text fontSize="20px">sub</Text>
-            <Text fontSize="20px">price</Text>
+            <Text fontSize="20px">Jacket</Text>
+            <Text fontSize="20px">₹ 15880</Text>
           </VStack>
           <VStack>
             <Image src="https://www.yoox.com/images/items/14/14206630GX_14_f.jpg?impolicy=crop&width=387&height=490" />
             <Text as="b" fontSize="20px">
-              Tory Bruch
+              TORY BRUCH
             </Text>
-            <Text fontSize="20px">sub</Text>
-            <Text fontSize="20px">price</Text>
+            <Text fontSize="20px">Cardigan</Text>
+            <Text fontSize="20px">₹ 18840</Text>
           </VStack>
           <VStack>
-            <Image src="https://www.yoox.com/images/items/14/14206630GX_14_f.jpg?impolicy=crop&width=387&height=490" />
+            <Image src="https://www.yoox.com/images/items/13/13919572QB_14_f.jpg?impolicy=crop&width=306&height=390" />
             <Text as="b" fontSize="20px">
-              Tory Bruch
+              DIESEL
             </Text>
-            <Text fontSize="20px">sub</Text>
-            <Text fontSize="20px">price</Text>
+            <Text fontSize="20px">Denim pants</Text>
+            <Text fontSize="20px">₹ 15730</Text>
           </VStack>
           <VStack>
-            <Image src="https://www.yoox.com/images/items/14/14206630GX_14_f.jpg?impolicy=crop&width=387&height=490" />
+            <Image src="https://www.yoox.com/images/items/16/16179483LM_14_f.jpg?impolicy=crop&width=306&height=390" />
             <Text as="b" fontSize="20px">
-              Tory Bruch
+              NINEMINUTES
             </Text>
-            <Text fontSize="20px">sub</Text>
-            <Text fontSize="20px">price</Text>
+            <Text fontSize="20px">Biker Jacket</Text>
+            <Text fontSize="20px">₹ 21954</Text>
           </VStack>
           <VStack>
-            <Image src="https://www.yoox.com/images/items/14/14206630GX_14_f.jpg?impolicy=crop&width=387&height=490" />
+            <Image src="https://www.yoox.com/images/items/50/50289777SW_14_f.jpg?impolicy=crop&width=306&height=390" />
             <Text as="b" fontSize="20px">
-              Tory Bruch
+              SALVATORE FERRAGAMO
             </Text>
-            <Text fontSize="20px">sub</Text>
-            <Text fontSize="20px">price</Text>
+            <Text fontSize="20px">Wrist watch</Text>
+            <Text fontSize="20px">₹ 50832</Text>
           </VStack>
         </SimpleGrid>
       </Box>
