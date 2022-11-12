@@ -84,7 +84,7 @@ export const Login = () => {
     }
 
     return (
-        <div style={{ marginTop: "180px" }} className={style.registerPage}>
+        <div className={style.registerPage}>
 
 
             {/* banner */}

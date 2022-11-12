@@ -80,5 +80,5 @@ export const SignUp = (data, next, toaster, nav) =>async (dispatch) => {
 }
 
 export const SignOut = () => {
-    return {type:auth_signOut}
+    return ({type:auth_signOut})
 }

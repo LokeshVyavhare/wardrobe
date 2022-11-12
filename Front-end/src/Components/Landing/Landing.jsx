@@ -21,7 +21,7 @@ const links = [
 export const Landing = () => {
 
 
-    return <div style={{ height: "auto" ,marginTop:"200px" }}>
+    return <div style={{ height: "auto"}}>
         {/* <h1>Landing</h1> */}
 
         {/* uppar section */}

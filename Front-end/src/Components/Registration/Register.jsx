@@ -80,7 +80,7 @@ export const Register = () => {
         
     }
     return (
-        <div style={{ marginTop: "180px" }} className={style.registerPage}>
+        <div className={style.registerPage}>
 
             {alert? 
             <Alert status='error'>
