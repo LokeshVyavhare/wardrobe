@@ -41,6 +41,14 @@ export const Mens = () => {
 
                 <Box boxSize='full'>
                     <Image src='https://www.yoox.com/images/yoox80/banners/6824_2_XmasLaunch_WM_Main.jpg?634485886869569819#width=1380&height=637' alt='The Grand' className={style.mphoto} />
+
+                    <Box w="400px" h="150px" className={style.imgb12} bg="white">
+                        <Heading fontFamily="monospace" p={2}>LIGHTS ON!</Heading>
+                        <Heading size="sm" p={2} fontFamily="monospace" color="blackAlpha.600">Enter to find the perfect present</Heading>
+                        <Box className={style.shopb2} gap={6}>
+                            <p><a href=''>LET THE SHOW BEGIN</a></p>
+                        </Box>
+                    </Box>
                 </Box>
             </Box>
             <Box className={style.mtriImg}>
@@ -156,9 +164,17 @@ export const Mens = () => {
 
                 </Grid>
             </Box>
-            <Box boxSize='full'w="60%" className={style.mg3img}>
+            <Box boxSize='full' w="60%" className={style.mg3img}>
                 <Box h="90vh">
                     <Image src='https://www.yoox.com/images/yoox80/banners/6833_1_8byYoox_Special_WM.png?634485886869569819#width=930&height=660' alt='The Grand' />
+                    <Box w="500px" h="150px" className={style.imgb123} bg="white">
+                        <Heading fontFamily="monospace" p={2}>8 BY YOOX</Heading>
+                        <Heading size="sm" p={2} fontFamily="monospace" color="blackAlpha.600">Create your look with the FW 22-23 collection</Heading>
+                        <Box className={style.shopb22} gap={6}>
+                            <p><a href=''>SHOP NOW</a></p>
+                            <p><a href=''>GET INSPIRED</a></p>
+                        </Box>
+                    </Box>
                 </Box>
             </Box>
 
@@ -166,9 +182,24 @@ export const Mens = () => {
                 <Grid templateColumns='repeat(2, 1fr)'>
                     <Box boxSize='full'>
                         <Image src='https://www.yoox.com/images/yoox80/banners/6769_1_DesignArtHomedecor_WM_Bottom.png?634485886869569819#width=690&height=637' alt='The Grand' />
+                        <Box w="500px" h="150px" className={style.imgb123f1} bg="white">
+                            <h1 className={style.sk123} p={2}>THERE'S NO PLACE LIKE HOME</h1>
+                            <Heading size="sm" p={2} fontFamily="monospace" color="blackAlpha.600">Discover the new selection of interior design </Heading>
+                            <Box className={style.shopb22f1} gap={6}>
+                                <p><a href=''>SHOP NOW</a></p>
+                            </Box>
+                        </Box>
                     </Box>
                     <Box boxSize='full'>
-                        <Image src='https://www.yoox.com/images/yoox80/banners/6895_1_GenZ_W_Bottom.jpg?634485886869569819#width=690&height=637' alt='The Grand' />
+                        <Image src='https://www.yoox.com/images/yoox80/banners/6895_2_GenZ_M_Bottom.jpg?634485886869569819#width=690&height=637' alt='The Grand' />
+                        <Box w="500px" h="150px" className={style.imgb123f2} bg="white">
+                            <h1 className={style.sk123} p={2}>SMELLS LIKE TEEN SPIRIT</h1>
+                            <Heading size="sm" p={2} fontFamily="monospace" color="blackAlpha.600">90's grunge and punk-rock details</Heading>
+                            <Box className={style.shopb22f2} gap={6}>
+                            <p><a href=''>EXPLORE</a></p>    
+                            <p><a href=''>SHOP NOW</a></p>    
+                            </Box>
+                        </Box>
                     </Box>
                 </Grid>
 
