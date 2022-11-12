@@ -48,3 +48,20 @@ export const AddToCart = (token, productId, quantity=1, delivered=false) => asyn
         dispatch({type:Cart_Add_Items_Error})
     }
 }
+
+export const updateCartItem = (token, cartId, quantity) => async (dispatch)=> {
+    dispatch({type:Cart_Update_Items_Loading});
+    const id = token.split("-")[0];
+
+    let data = {
+        quantity:quantity
+    }
+
+    try{
+        let req =await axios.patch(`https://wardrobe-server.onrender.com/carts/${cartId}`, data, {headers:{token:token}});
+        dispatch({type:Cart_Update_Items_Success, payload:req.data});
+
+    }catch(err){
+        dispatch({type:Cart_Update_Items_Error})
+    }
+}
