@@ -186,7 +186,7 @@ export const Womens = () => {
             </Box>
 
             <Box boxSize="full" w="90%" margin="auto" className={style.limg} >
-                <Grid templateColumns='repeat(2, 1fr)'>
+                <Grid templateColumns='repeat(2, 1fr)' >
                     <Box boxSize='full'>
                         <Image src='https://www.yoox.com/images/yoox80/banners/6769_1_DesignArtHomedecor_WM_Bottom.png?634485886869569819#width=690&height=637' alt='The Grand' />
                         <Box w="500px" h="150px" className={style.wimgb123f1} bg="white">
