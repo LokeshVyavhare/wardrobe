@@ -11,22 +11,41 @@ import {
 import style from './cart.module.css'
 import data from '../../db.json';
 import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { CartItem } from "./CartItem";
 import { RiArrowRightSLine } from 'react-icons/ri'
 import {HiOutlinePlus} from 'react-icons/hi'
 import { GetCartItems } from "../../Redux/Cart/actions";
 import { useDispatch, useSelector } from "react-redux";
 
-const cart = data.cart;
 
 export const Cart = () => {
     const token = useSelector(store=>store.auth.data.token);
     const data = useSelector(store=>store.cart.data);
+    const loading = useSelector(store=>store.cart.loading);
+    const [itemPrice, setItemPrice] = useState(0);
+    const [modePrice, setModerice] = useState(0);
+    const [mode, setMod] = useState(true);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(GetCartItems(token));
     }, [])
+
+    useEffect(()=>{
+        if(mode){
+            setModerice(9.95)
+        }else{
+            setModerice(14.95)
+        }
+    }, [mode])
+
+    useEffect(()=>{
+        let totalPrice =0;
+        data.forEach((item)=>{
+            totalPrice+=item.product.price*item.quantity
+        })
+        setItemPrice(totalPrice);
+    }, [data])
 
 
 
@@ -46,7 +65,7 @@ export const Cart = () => {
         {/* cart nav */}
         <Flex className={style.nav} direction={['column','column', 'row']}>
 
-            <Box className={style.link} mb={['25px','25px', 'auto']}><Link>BACK TO SHOPPING</Link></Box>
+            <Box className={style.link} mb={['25px','25px', 'auto']}><Link href='/women'>BACK TO SHOPPING</Link></Box>
 
             <Flex className={style.proceedToOrder}>
                     <Text>PROCEED WITH ORDERS</Text>
@@ -64,7 +83,7 @@ export const Cart = () => {
                     <Text mr={['25px']}>ITEMS ADDED TO YOUR SHOPPING BAG {1}</Text>
                 </Flex>
             </Heading>
-            {data.map((item) => <CartItem key={item.id + 'cartData'} data={item} />)}
+            {data.map((item) => <CartItem key={item._id + 'cartData'} data={item} />)}
         </Box>
 
 
@@ -81,7 +100,7 @@ export const Cart = () => {
             <Box className={style.shippingList}>
                     <label>
                 <Flex align='start' className={style.shippingOpt} cursor='pointer'>
-                    <input type="radio" name="mode" className={style.shippingRadio} checked={true}/>
+                    <input type="radio" name="mode" className={style.shippingRadio} onChange={(e)=>{setMod(e.target.checked)}} defaultChecked/>
                     <Box>
                     <Heading size={'sm'}>STANDARD - $ 9.95</Heading>
                     <Text color='grey' fontSize={'13px'}>8-10 business days</Text>
@@ -90,7 +109,7 @@ export const Cart = () => {
                     </label>
                     <label>    
                 <Flex align='start' className={style.shippingOpt} cursor='pointer'>
-                    <input type="radio" name="mode" className={style.shippingRadio}/>
+                    <input type="radio" name="mode" className={style.shippingRadio} onChange={(e)=>{setMod(!e.target.checked)}}/>
                     <Box>
                     <Heading size={'sm'}>EXPRESS -$ 14.95</Heading>
                     <Text color='grey' fontSize={'13px'}>2-3 business days</Text>
@@ -134,11 +153,11 @@ export const Cart = () => {
             <Box className={style.priceList}>
                 <Flex className={style.priceBox}>
                     <Heading size={'xs'}>Total For All Items</Heading>
-                    <Heading size={'xs'}>$ {229.00}</Heading>
+                    <Heading size={'xs'}>$ {itemPrice}</Heading>
                 </Flex>
                 <Flex className={style.priceBox}>
                     <Heading size={'xs'}>Shipping</Heading>
-                    <Heading size={'xs'}>$ {71.00}</Heading>
+                    <Heading size={'xs'}>$ {modePrice}</Heading>
                 </Flex>
                 <Flex className={style.priceBox}>
                     <Heading size={'xs'}>Payment</Heading>
@@ -147,7 +166,7 @@ export const Cart = () => {
 
                 <Flex className={style.orderTotal}>
                 <Heading size={'sm'}>Order Total</Heading>
-                    <Heading size={'sm'}>$ {1450.00}</Heading>
+                    <Heading size={'sm'}>$ {itemPrice+modePrice}</Heading>
 
                 </Flex>
 

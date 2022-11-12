@@ -65,6 +65,10 @@
     background: #000;
     color: #fff;
 }
+.cartCountbuttonBox{
+    width: 30px;
+    height: 30px;
+}
 .cartCountbutton:active{
     background: rgb(95, 95, 95);
 }
@@ -109,9 +113,6 @@
 
 .promoCodeBox{
     background-color: #f3f3f3;
-
-}
-.priceList{
 
 }
 
