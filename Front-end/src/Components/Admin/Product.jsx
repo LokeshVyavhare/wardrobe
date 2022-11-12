@@ -5,7 +5,7 @@ import style from './Admin.module.css'
 import {RiDeleteBin5Line} from 'react-icons/ri'
 
 export const Product = ({data}) => {
-    const {image1, name, tags, category, prize} = data;
+    const {image1, name, tags, category, price} = data;
     return <Flex justify={'space-around'} boxShadow='lg' className={style.productBox} align={'center'}  direction={['column', 'column', 'row']} mb={['35px', '35px', '25px']}>
     <Box>
         <Image src={image1} width='75px'/>
@@ -18,7 +18,7 @@ export const Product = ({data}) => {
         <Text>{category}</Text>
     </Box>
     <Box>
-        <Text fontWeight={700}>$ {prize}</Text>
+        <Text fontWeight={700}>$ {price}</Text>
     </Box>
     <Box>
         <button className={style.productRemoveButton}> <RiDeleteBin5Line/></button>
