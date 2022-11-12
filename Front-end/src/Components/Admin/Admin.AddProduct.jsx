@@ -63,7 +63,7 @@ export const AddProduct = () => {
                         </Select>
                         <Select placeholder='Select SubCategory' w='45%' required ref={inpSub}>
                             <option value='footwear'>Footwear</option>
-                            <option value='ipperwear'>Upperwear</option>
+                            <option value='upperwear'>Upperwear</option>
                             <option value='lowerwear'>Lowerwear</option>
                             <option value='innerwear'>Innerwear</option>
                             <option value='jwellery'>Jwellery</option>
