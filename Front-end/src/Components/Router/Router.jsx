@@ -21,7 +21,7 @@ export const Router = () => {
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
         <Route path='/cart' element={<Cart/>}></Route>
-        <Route path='/cart/checkout' element={<Checkout/>}></Route>
+        {/* <Route path='/cart/checkout' element={<Checkout/>}></Route> */}
         <Route path='/category/:category' element={<Category/>}></Route>
         <Route path='/product/:id' element={<Product/>}></Route>
         <Route path='/admin' element={<Admin/>}></Route>
