@@ -37,7 +37,7 @@ export const Product = () => {
   const cartFailure = () =>
     toast({
       title: "Failed",
-      description: "Sorry! We couldnt add the item to the cart.Try again",
+      description: "Something went wrong.",
       status: "error",
       duration: 9000,
       isClosable: true,
