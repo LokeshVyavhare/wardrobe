@@ -36,7 +36,8 @@ import styles from '../Landing/MiddleSection.module.css'
 import { Search2Icon } from '@chakra-ui/icons'
 import { BsHeart, BsBagPlus } from "react-icons/bs"
 import { BiLock } from 'react-icons/bi'
-
+import {useSelector, useDispatch} from 'react-redux'
+import {auth_signOut} from '../../Redux/Auth/actionTypes'
 
 const links = [
 
@@ -51,11 +52,15 @@ const links = [
 
 export const Navbar = () => {
     const { isOpen, onToggle } = useDisclosure();
+
+    const isAuth = useSelector(store=>store.auth.data.isAuth)
+    const dispatch = useDispatch();
      
 
 
     return (
-        <div style={{ position: "fixed", width: "100%", top: "0",backgroundColor:"white" }}>
+        <Box height={'170px'}>
+            <div style={{ position: "fixed", width: "100%", top: "0",backgroundColor:"white", zIndex:"100" }}>
             <div >
                 {/* uppar navbar */}
                 <div className="Mbox1" style={{ border: "1px solid gray", borderTop: "none", borderRight: "none", borderLeft: "none", height: "40px", width: "80%", display: "flex", justifyContent: "space-evenly", overflow: "hidden", marginLeft: "10%", backgroundColor: "white" }}>
@@ -94,7 +99,18 @@ export const Navbar = () => {
                         </NavLink>
 
 
-                        <div style={{ display: "flex" }}>
+                        {isAuth?
+                        <div style={{ display: "flex" }} onClick={()=>{dispatch({type: auth_signOut})}}>
+                        <BiLock style={{ height: "50px", width: "21%", marginTop: "-10" }} />
+                        {/* <NavLink to="/login"> */}
+                            <Button colorScheme='gray' variant='ghost' color="black" size='sm' >
+                                Logout  
+                            </Button>
+
+                        {/* </NavLink> */}
+
+                    </div>
+                        :<div style={{ display: "flex" }}>
                             <BiLock style={{ height: "50px", width: "21%", marginTop: "-10" }} />
                             <NavLink to="/login">
                                 <Button colorScheme='gray' variant='ghost' color="black" size='sm' >
@@ -103,8 +119,7 @@ export const Navbar = () => {
 
                             </NavLink>
 
-
-                        </div>
+                        </div>}
 
                     </div>
 
@@ -326,6 +341,7 @@ export const Navbar = () => {
                 </Collapse>
             </Box>
         </div>
+        </Box>
 
     )
 }
@@ -484,20 +500,30 @@ interface NavItem {
     children?: Array<NavItem>;
     href?: string;
 }
+/*
+<option value='footwear'>Footwear</option>
+                            <option value='upperwear'>Upperwear</option>
+                            <option value='lowerwear'>Lowerwear</option>
+                            <option value='innerwear'>Innerwear</option>
+                            <option value='jwellery'>Jwellery</option>
+                            <option value='hats'>Hats</option>
+                            <option value='tradition'>Tradition</option>
+                            <option value='fullbody'>Fullbody</option>
+ */
 
 const NAV_ITEMS: Array<NavItem> = [
     {
-        label: 'NEW ARRIVALS',
+        label: 'Footwear',
         children: [
             {
                 label: 'Clothing',
                 subLabel: 'Trending CLOTHING',
-                href: "/newarrivals",
+                href: `/category/footwear`,
             },
             {
                 label: 'New & Noteworthy ',
                 subLabel: 'Up-and-coming Designers',
-                href: '/mens',
+                href: `/category/footwear`,
             },
         ],
     },

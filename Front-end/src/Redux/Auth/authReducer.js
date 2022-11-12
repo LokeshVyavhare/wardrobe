@@ -104,6 +104,8 @@ export const authReducer= (state=initialData, {type, payload}) => {
             }
         }
         case auth_signOut:{
+            setLocalStorage('token', null)
+            setLocalStorage('typeWardRobe', null)
             return{
                 ...state,
                 data:{
