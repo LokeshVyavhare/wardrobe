@@ -31,7 +31,6 @@ export const cartReducer= (state=initialData, action) => {
         case Cart_Get_Items_Error:{
             return({
                 ...state,
-                data:[],
                 loading:false,
                 error:true,
             })
@@ -39,7 +38,6 @@ export const cartReducer= (state=initialData, action) => {
         case Cart_Get_Items_Loading:{
             return({
                 ...state,
-                data:[],
                 loading:true,
                 error:false,
             })
@@ -55,7 +53,6 @@ export const cartReducer= (state=initialData, action) => {
         case Cart_Add_Items_Error:{
             return({
                 ...state,
-                data:[],
                 loading:false,
                 error:true,
             })
@@ -63,7 +60,35 @@ export const cartReducer= (state=initialData, action) => {
         case Cart_Add_Items_Loading:{
             return({
                 ...state,
-                data:[],
+                loading:true,
+                error:false,
+            })
+        }
+        case Cart_Update_Items_Success:{
+            let {cartId, quantity} = action.payload;
+            let newDat = state.data.map((item=>{
+                if(item._id===cartId){
+                    item.quantity=quantity
+                }
+                return item;
+            }))
+            return({
+                ...state,
+                data:newDat,
+                loading:false,
+                error:false,
+            })
+        }
+        case Cart_Update_Items_Error:{
+            return({
+                ...state,
+                loading:false,
+                error:true,
+            })
+        }
+        case Cart_Update_Items_Loading:{
+            return({
+                ...state,
                 loading:true,
                 error:false,
             })

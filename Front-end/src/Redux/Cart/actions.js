@@ -30,6 +30,8 @@ export const GetCartItems = (token) => async (dispatch)=> {
 }
 
 export const AddToCart = (token, productId, quantity=1, delivered=false) => async (dispatch)=> {
+
+    console.log( token, 'token')
     dispatch({type:Cart_Add_Items_Loading});
     const id = token.split("-")[0];
 
@@ -41,8 +43,10 @@ export const AddToCart = (token, productId, quantity=1, delivered=false) => asyn
     }
 
     try{
-        let req =await axios.post(`https://wardrobe-server.onrender.com/carts/${id}`, data, {headers:{token:token}});
+
+        let req =await  axios.post(`https://wardrobe-server.onrender.com/carts`,  data, {headers:{token:token}});
         dispatch({type:Cart_Add_Items_Success, payload:req.data});
+        alert('item added to cart')
 
     }catch(err){
         dispatch({type:Cart_Add_Items_Error})
@@ -50,6 +54,8 @@ export const AddToCart = (token, productId, quantity=1, delivered=false) => asyn
 }
 
 export const updateCartItem = (token, cartId, quantity) => async (dispatch)=> {
+
+
     dispatch({type:Cart_Update_Items_Loading});
     const id = token.split("-")[0];
 
@@ -59,9 +65,10 @@ export const updateCartItem = (token, cartId, quantity) => async (dispatch)=> {
 
     try{
         let req =await axios.patch(`https://wardrobe-server.onrender.com/carts/${cartId}`, data, {headers:{token:token}});
-        dispatch({type:Cart_Update_Items_Success, payload:req.data});
+        dispatch({type:Cart_Update_Items_Success, payload:{cartId, quantity}});
 
     }catch(err){
         dispatch({type:Cart_Update_Items_Error})
+        alert(err.message)
     }
 }
