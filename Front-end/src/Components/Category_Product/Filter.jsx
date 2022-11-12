@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box,Stack,Button,VStack,StackDivider,Text} from "@chakra-ui/react"
+import {Box,Stack,Button,VStack,StackDivider,Text, Image} from "@chakra-ui/react"
 
 const Filter = () => {
   return (
@@ -8,6 +8,7 @@ const Filter = () => {
     spacing={4}
     align='stretch'
   >
+    <Image src='https://www.yoox.com/images/yoox80/banners/5351_1_CalvinKlein_TY_EU.jpg?634485886869569819' />
     <Box h='40px' bg='gray.200'  display="flex" alignItems="center" justifyContent="space-between">
     <Text fontSize="15px">CATEGORIES</Text>
     <Text fontSize="25px">+</Text>
@@ -52,6 +53,8 @@ const Filter = () => {
     <Text fontSize="15px">PRINT</Text>
     <Text fontSize="25px">+</Text>
     </Box>
+
+    <Image src='https://www.yoox.com/images/yoox80/banners/6965_2_teleyoox_DM_US.png?634485886869569819' alt='singles day' />
   </VStack>
   )
 }

@@ -10,7 +10,7 @@ const CategoryCard = ({src , alt , name , description,price}) => {
       <div>
         <div>{name}</div>
         <div>{description}</div>
-        <div>{price}</div>
+        <div>${price}</div>
       </div>
     </div>
     </div>
