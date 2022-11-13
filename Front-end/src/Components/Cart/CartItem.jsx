@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react'
 import style from './cart.module.css'
 import {useDispatch, useSelector} from 'react-redux'
-import { updateCartItem } from '../../Redux/Cart/actions'
+import { updateCartItem, Delete_Cart_Item } from '../../Redux/Cart/actions'
 
 export const CartItem = ({data}) => {
     const {quantity, product, _id} = data
@@ -23,6 +23,9 @@ export const CartItem = ({data}) => {
 
     const decCount = ()=>{
         dispatch(updateCartItem(token, _id, quantity-1))
+    }
+    const handleDelete = () => {
+        dispatch(Delete_Cart_Item(token, _id))
     }
 
 
@@ -43,6 +46,7 @@ export const CartItem = ({data}) => {
                     <span>{quantity}</span>
                     <Box className={style.cartCountbuttonBox}>{quantity<=9?<button className={style.cartCountbutton} onClick={addCount}>+</button>:""}</Box>
                 </Flex>
+                <button onClick={handleDelete}>Remove</button>
             </Box>
             <Box>
                 <Text fontWeight={700}>$ {price*quantity}</Text>

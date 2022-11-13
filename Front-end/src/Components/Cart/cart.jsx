@@ -59,7 +59,12 @@ export const Cart = () => {
 
     if(data.length === 0){
         return <div className={style.empty}>
-
+            <Box className={style.empty2} w={["90%", "80%", "60%", "50%"]}>
+                <Heading size='lg' mb='25px'>Cart is empty.</Heading>
+                <Heading size='md' mb='45px'>Please add Products to see in cart</Heading>
+                <Box className={style.link} mb={['25px','25px', 'auto']}><Link href='/womens'>BACK TO SHOPPING</Link></Box>
+                
+            </Box>
         </div>
     }
 
@@ -72,7 +77,7 @@ export const Cart = () => {
         {/* cart nav */}
         <Flex className={style.nav} direction={['column','column', 'row']}>
 
-            <Box className={style.link} mb={['25px','25px', 'auto']}><Link href='/women'>BACK TO SHOPPING</Link></Box>
+            <Box className={style.link} mb={['25px','25px', 'auto']}><Link href='/womens'>BACK TO SHOPPING</Link></Box>
 
             {/* <Link href='/cart/checkout'className={style.proceedToOrder} display='flex'>
                     <Text>PROCEED WITH ORDERS</Text>
@@ -183,7 +188,7 @@ export const Cart = () => {
 {/* nav */}
             <Flex className={style.nav} direction={['column','column', 'row']}>
 
-            <Box className={style.link} mb={['25px','25px', 'auto']}><Link>BACK TO SHOPPING</Link></Box>
+            <Box className={style.link} mb={['25px','25px', 'auto']}><Link href='/womens'>BACK TO SHOPPING</Link></Box>
 
             {/* <Flex className={style.proceedToOrder} >
                     <Text>PROCEED WITH ORDERS</Text>

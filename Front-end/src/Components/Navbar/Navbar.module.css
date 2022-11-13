@@ -8,3 +8,46 @@
     text-decoration: none;
     padding: 10px 25px;
 }
+
+.upNav1{
+    justify-content: space-between
+}
+
+.upNav2{
+    justify-content: space-between
+}
+
+
+.upNav2Tab1, .upNav1Tab1 {
+    display: flex;
+    justify-content: space-between;
+    padding:5px 15px;
+    align-items: center;
+    margin:0;
+    cursor: pointer;
+}
+.upNav2Tab1 p, .upNav1Tab1 p{
+    font-size: 11px;
+    font-family: 'Montserrat',sans-serif;
+    text-decoration: underline;
+    font-weight: 700;
+    text-transform:uppercase;
+    padding-left: 10px;
+}
+.upNav2Tab1:hover{
+    background-color: #f3f3f3;
+}
+.upNav2Tab1:hover p{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+/* MidNav */
+
+.midNav{
+    justify-content: space-between;
+    align-items: center;
+}

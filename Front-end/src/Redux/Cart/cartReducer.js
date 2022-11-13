@@ -11,14 +11,18 @@ import {
     Cart_Update_Items_Error,
     Cart_Update_Items_Loading,
     Cart_Update_Items_Success,
-    Empty_Cart
+    Cart_Empty_Items_Error,
+    Cart_Empty_Items_Loading,
+    Cart_Empty_Items_Success,
+
 } from './actionTypes'
 
 const initialData = {
     data:[],
     loading:false,
     error:false,
-    total:0
+    getloading:false,
+    geterror:false
 }
 export const cartReducer= (state=initialData, action) => {
     switch(action.type){
@@ -26,22 +30,22 @@ export const cartReducer= (state=initialData, action) => {
             return({
                 ...state,
                 data:action.payload,
-                loading:false,
-                error:false,
+                getloading:false,
+                geterror:false,
             })
         }
         case Cart_Get_Items_Error:{
             return({
                 ...state,
-                loading:false,
-                error:true,
+                getloading:false,
+                geterror:true,
             })
         }
         case Cart_Get_Items_Loading:{
             return({
                 ...state,
-                loading:true,
-                error:false,
+                getloading:true,
+                geterror:false,
             })
         }
         case Cart_Add_Items_Success:{
@@ -75,13 +79,11 @@ export const cartReducer= (state=initialData, action) => {
                 return item;
             }))
 
-            const newTotal1 = newDat.reduce((sum, item)=>sum+item.product.price);
             return({
                 ...state,
                 data:newDat,
                 loading:false,
                 error:false,
-                total:newTotal1
             })
         }
         case Cart_Update_Items_Error:{
@@ -98,14 +100,53 @@ export const cartReducer= (state=initialData, action) => {
                 error:false,
             })
         }
-        case Empty_Cart:{
-            return {
-                data:[],
+        case Cart_Delete_Items_Success:{
+            const newData = state.data.filter((item)=>item._id !==action.payload)
+            return({
+                ...state,
+                data:newData,
                 loading:false,
                 error:false,
-                total:0
-            }
+            })
         }
+        case Cart_Delete_Items_Error:{
+            return({
+                ...state,
+                loading:false,
+                error:true,
+            })
+        }
+        case Cart_Delete_Items_Loading:{
+            return({
+                ...state,
+                loading:true,
+                error:false,
+            })
+        }
+        case Cart_Empty_Items_Success:{
+            const newData = []
+            return({
+                ...state,
+                data:newData,
+                loading:false,
+                error:false,
+            })
+        }
+        case Cart_Empty_Items_Error:{
+            return({
+                ...state,
+                loading:false,
+                error:true,
+            })
+        }
+        case Cart_Empty_Items_Loading:{
+            return({
+                ...state,
+                loading:true,
+                error:false,
+            })
+        }
+        
         default:{
             return state
         }

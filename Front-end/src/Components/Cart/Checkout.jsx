@@ -30,16 +30,17 @@ import { RiArrowRightSLine } from 'react-icons/ri'
 import { useDisclosure } from '@chakra-ui/react'
 import style from './cart.module.css'
 import React from 'react';
-import { empty_Cart } from '../../Redux/Cart/actions';
-import { useDispatch } from 'react-redux';
+import { Empty_Cart_Item } from '../../Redux/Cart/actions';
+import { useDispatch, useSelector } from 'react-redux';
 
 export function AlertDialogExample() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const cancelRef = React.useRef()
     const dispatch = useDispatch();
+    const token = useSelector(store=>store.auth.data.token)
 
     const checkout = () => {
-        dispatch(empty_Cart)
+        dispatch(Empty_Cart_Item(token))
         onClose();
     }
   
@@ -58,19 +59,19 @@ export function AlertDialogExample() {
           <AlertDialogOverlay>
             <AlertDialogContent>
               <AlertDialogHeader fontSize='lg' fontWeight='bold'>
-                Delete Customer
+                Checkout
               </AlertDialogHeader>
   
               <AlertDialogBody>
-                Are you sure? You can't undo this action afterwards.
+                Are you sure? You want to Checkout?
               </AlertDialogBody>
   
               <AlertDialogFooter>
                 <Button ref={cancelRef} onClick={onClose}>
                   Cancel
                 </Button>
-                <Button colorScheme='red' onClick={checkout} ml={3}>
-                  Delete
+                <Button colorScheme='green' onClick={checkout} ml={3}>
+                  CheckOut
                 </Button>
               </AlertDialogFooter>
             </AlertDialogContent>
