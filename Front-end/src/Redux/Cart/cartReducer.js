@@ -22,7 +22,8 @@ const initialData = {
     loading:false,
     error:false,
     getloading:false,
-    geterror:false
+    geterror:false,
+    count:0
 }
 export const cartReducer= (state=initialData, action) => {
     switch(action.type){
@@ -32,6 +33,7 @@ export const cartReducer= (state=initialData, action) => {
                 data:action.payload,
                 getloading:false,
                 geterror:false,
+                count:action.payload.length
             })
         }
         case Cart_Get_Items_Error:{
@@ -54,6 +56,7 @@ export const cartReducer= (state=initialData, action) => {
                 data:[...state.data, action.payload],
                 loading:false,
                 error:false,
+                count:state.count+1
             })
         }
         case Cart_Add_Items_Error:{
@@ -107,6 +110,7 @@ export const cartReducer= (state=initialData, action) => {
                 data:newData,
                 loading:false,
                 error:false,
+                count:state.count-1
             })
         }
         case Cart_Delete_Items_Error:{
@@ -130,6 +134,7 @@ export const cartReducer= (state=initialData, action) => {
                 data:newData,
                 loading:false,
                 error:false,
+                count:0
             })
         }
         case Cart_Empty_Items_Error:{

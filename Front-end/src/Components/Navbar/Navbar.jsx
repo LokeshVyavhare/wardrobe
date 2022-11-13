@@ -43,9 +43,11 @@ import { auth_signOut } from '../../Redux/Auth/actionTypes'
 import { AiFillLock, AiFillUnlock, AiOutlineShoppingCart,  } from 'react-icons/ai'
 import { BsPen} from 'react-icons/bs'
 import {FiSearch } from 'react-icons/fi'
+import {MdCancel } from 'react-icons/md'
 import { AiOutlineShop } from 'react-icons/ai'
-import { FaUserAlt } from 'react-icons/fa'
+import { FaUserAlt, FaUserCircle } from 'react-icons/fa'
 import { RiArrowDropDownFill, RiArrowDropUpFill } from 'react-icons/ri'
+import { useState, useEffect } from 'react';
 
 const links = [
 
@@ -63,26 +65,38 @@ export const Navbar = () => {
 
     const isAuth = useSelector(store => store.auth.data.isAuth)
     const Usertype = useSelector(store => store.auth.data.type)
+    const count = useSelector(store => store.cart.count)
     const dispatch = useDispatch();
+    const [dropUser, setDropUser] = useState(false);
+    const [cartCount, setCartCount] = useState(0)
+
+    useEffect(()=>{
+        if(count>9){
+            setCartCount('9+')
+        }else{
+            setCartCount(count);
+        }
+    }, [count])
 
 
 
     return (
-        <Box position='sticky' top={0} zIndex='10'>
+        <Box position='sticky' top={0} zIndex='10' >
             <div style={{  width: "100%", top: "0", backgroundColor: "white", zIndex: "100" }}>
 
                 
-                <Flex className={style.upNav} w={['100%','95%','80%']} justify='space-between' p={['5px 15px','5px 20px','5px 40px']} m='auto' borderBottom='1px solid grey' >
+                <Box borderBottom='1px solid #eee'>
+                <Flex className={style.upNav} w={['100%','95%','80%']} justify='space-between' m='auto' p={['5px 15px','5px 5px','5px 40px']} >
                     <Flex className={style.upNav1} display={['none', 'flex','flex']}>
                         <Box className={style.upNav1Tab1}>
                             <Text>Country</Text>
-                            <RiArrowDropDownFill size='25px'/>
+                            <RiArrowDropDownFill Size={['25px']} />
 
                         </Box>
                         <Box className={style.upNav1Tab1}><Text>Customer Care</Text></Box>
                     </Flex>
-                    <Flex className={style.upNav2} display={['flex']}>
-                        <Box className={style.upNav2Tab1}>
+                    <Flex className={style.upNav2} display='flex' w={['100%', 'fit-content']} justify='space-between'>
+                        <Box className={style.upNav2Tab1} display={['none','flex']}>
                             {!isAuth ?
                                 <BsPen ml='5px' />
                                 : Usertype === 'seller' ?
@@ -100,7 +114,7 @@ export const Navbar = () => {
                                     : ""
                             }
                         </Box>
-                        <Box className={style.upNav2Tab1}>
+                        <Box className={style.upNav2Tab1} display={['none','flex']}>
 
                             {isAuth ? <AiFillLock /> : <AiFillUnlock />}
                             {isAuth ?
@@ -108,28 +122,54 @@ export const Navbar = () => {
                                 : <NavLink to="/login"><Text>Login</Text></NavLink>
                             }
                         </Box>
+                        <Box display={['block','none']} className={style.upNav2TabSpec}>
+                            <Box onClick={()=>{setDropUser(!dropUser)}}>
+                            {dropUser?<FaUserCircle size='25px'/>:<MdCancel size='25px'/>}
+                            
+                            </Box>
+                            {dropUser?"":
+                            <Box  className={style.specDropBox}>
+                                <Box className={style.specDrop}><NavLink to="/mens"><Text>Men</Text></NavLink></Box>
+                                <Box className={style.specDrop}><NavLink to="/womens"><Text>Women</Text></NavLink></Box>
+                                <Box className={style.specDrop}><NavLink to="/kids"><Text>Kids</Text></NavLink></Box>
+                                <Box className={style.specDrop}><NavLink to="/admin"><Text>Seller</Text></NavLink></Box>
+                                <Box className={style.specDrop}>{isAuth?"":<NavLink to="/register"><Text>Register</Text></NavLink>}</Box>
+                                <Box className={style.specDrop}>{isAuth ?
+                                <Text onClick={() => { dispatch({ type: auth_signOut }) }}>Logout</Text>
+                                : <NavLink to="/login"><Text>Login</Text></NavLink>
+                                }</Box>
+
+                            </Box>
+                            }
+                        </Box>
+                        <Box display={['block','none']} className={style.upNav2Tab1}>
+                            <NavLink to="/cart" position='relative'><AiOutlineShoppingCart className={style.midNav3Img}/>{count>0?<Box className={style.cartBadge}>{cartCount}</Box>:""}</NavLink>
+                                
+                        </Box>
                     </Flex >
                 </Flex>
+                </Box>
 
 
 
                 {/* middle start */}
-                <Flex className={style.midNav} w={['100%','95%','80%']} p={['15px 15px','15px 20px','15px 40px']} m='auto'>
-                    <Flex>
-                        <NavLink to='/womens'><Text>Women</Text></NavLink>
-                        <NavLink to='/mens'><Text>Men</Text></NavLink>
-                        <NavLink to='/kids'><Text>kids</Text></NavLink>
+                <Flex className={style.midNav} w={['100%','95%','80%']} p={['5px 15px','5px 20px','5px 40px']} m='auto' display={['none', 'flex']}>
+                    <Flex className={style.midNav1}>
+                        <Box className={style.midNav1Tab}><NavLink to='/womens'><Text>Women</Text></NavLink></Box>
+                        <Box className={style.midNav1Tab}><NavLink to='/mens'><Text>Men</Text></NavLink></Box>
+                        <Box className={style.midNav1Tab}><NavLink to='/kids'><Text>kids</Text></NavLink></Box>
+
                     </Flex>
-                    <Flex>
-                        <Image src='https://i.postimg.cc/0Nzmz4DK/logo-wrdrb.png' width='100px'/>
+                    <Flex className={style.midNav2} display={['none', 'none', 'block']}>
+                        <Image src='https://i.postimg.cc/0Nzmz4DK/logo-wrdrb.png' width='75px'/>
                     </Flex>
-                    <Flex>
-                        <Box>
-                        <Popover>
+                    <Flex className={style.midNav3}>
+                        <Box className={style.midNav3Tab}>
+                        <Popover position='relative'>
                                     <PopoverTrigger>
-                                        <FiSearch/>
+                                        <FiSearch className={style.midNav3Img}/>
                                     </PopoverTrigger>
-                                    <Portal left='300px'>
+                                    <Portal left='300px' position='absolute'>
                                         <PopoverContent w="430px" height="70px">
                                             <PopoverArrow />
 
@@ -146,11 +186,11 @@ export const Navbar = () => {
                                     </Portal>
                                 </Popover>
                         </Box>
-                        <Box>
-                            <BsHeart/>
+                        <Box className={style.midNav3Tab}>
+                            <BsHeart className={style.midNav3Img}/>
                         </Box>
-                        <Box>
-                            <AiOutlineShoppingCart/>
+                        <Box className={style.midNav3Tab}>
+                        <NavLink to="/cart" position='relative'><AiOutlineShoppingCart className={style.midNav3Img}/>{count>0?<Box className={style.cartBadge}>{cartCount}</Box>:""}</NavLink>
                         </Box>
                     </Flex>
                 </Flex>
@@ -198,7 +238,7 @@ export const Navbar = () => {
                                 fontFamily={'heading'}
                                 color={useColorModeValue('white', 'white')}>
                                 <Box >
-                                    <img width="60px" style={{ borderRadius: "10px" }} src="https://i.postimg.cc/0Nzmz4DK/logo-wrdrb.png" alt="Logo" />
+                                    <Image display={['block', 'block', 'none']} width="60px" style={{ borderRadius: "10px" }} src="https://i.postimg.cc/0Nzmz4DK/logo-wrdrb.png" alt="Logo" />
 
                                 </Box>
 
@@ -465,12 +505,12 @@ const NAV_ITEMS: Array<NavItem> = [
             {
                 label: 'Innerwere',
                 subLabel: 'Find your dream Innerwere',
-                href: "/category/innerwere",
+                href: "/category/innerwear",
             },
             {
                 label: 'Boots of inners',
                 subLabel: 'An exclusive list for boot work',
-                href: '/category/innerwere',
+                href: '/category/innerwear',
             },
         ],
     },
