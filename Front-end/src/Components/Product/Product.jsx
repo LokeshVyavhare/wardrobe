@@ -90,7 +90,7 @@ export const Product = () => {
               <Text fontSize="16px" align="start">
                 {product.tags}
               </Text>
-              <Text py={6}> ₹ {product.price}</Text>
+              <Text py={6}> $ {product.price}</Text>
               <Text border="1px" py={3} px={1}>
                 Need more help? View the Size Guide
               </Text>
