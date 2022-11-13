@@ -15,7 +15,7 @@ const Category = () => {
   React.useEffect(() => {
     dispatch(getCategory())
   }, []);
-=======
+
 const {data, error , loading }= useSelector((store) => store.category);
 const dispatch = useDispatch();
 const { category } = useParams();
