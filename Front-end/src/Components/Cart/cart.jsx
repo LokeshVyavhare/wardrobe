@@ -17,6 +17,7 @@ import { RiArrowRightSLine } from 'react-icons/ri'
 import {HiOutlinePlus} from 'react-icons/hi'
 import { GetCartItems } from "../../Redux/Cart/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { AlertDialogExample } from "./Checkout";
 
 
 export const Cart = () => {
@@ -56,6 +57,12 @@ export const Cart = () => {
         setPmcStatus(!pmcStatus);
     }
 
+    if(data.length === 0){
+        return <div className={style.empty}>
+
+        </div>
+    }
+
     return <div className={style.cart}>
 
         {/* cartpage heading */}
@@ -67,10 +74,11 @@ export const Cart = () => {
 
             <Box className={style.link} mb={['25px','25px', 'auto']}><Link href='/women'>BACK TO SHOPPING</Link></Box>
 
-            <Flex className={style.proceedToOrder}>
+            {/* <Link href='/cart/checkout'className={style.proceedToOrder} display='flex'>
                     <Text>PROCEED WITH ORDERS</Text>
                     <RiArrowRightSLine className={style.icon} />
-            </Flex>
+            </Link> */}
+            <AlertDialogExample/>
 
         </Flex>
             
@@ -177,10 +185,11 @@ export const Cart = () => {
 
             <Box className={style.link} mb={['25px','25px', 'auto']}><Link>BACK TO SHOPPING</Link></Box>
 
-            <Flex className={style.proceedToOrder} >
+            {/* <Flex className={style.proceedToOrder} >
                     <Text>PROCEED WITH ORDERS</Text>
                     <RiArrowRightSLine className={style.icon} />
-            </Flex>
+            </Flex> */}
+            <AlertDialogExample/>
 
         </Flex>
 

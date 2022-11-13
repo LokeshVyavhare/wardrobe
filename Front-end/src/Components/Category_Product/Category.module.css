@@ -1,0 +1,24 @@
+.topBanner{
+    width: 70%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+.para{
+    font-family: Montserrat,sans-serif;
+    font-size:  .8125rem;
+}  
+.h1{
+    font-weight: 700;
+    font-size: 24px;
+    font-family: Montserrat,sans-serif;
+}
+.topBanner::before{
+    background-color: #fffe94;
+    bottom: 9%;
+    content: "";
+    height: 7px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
