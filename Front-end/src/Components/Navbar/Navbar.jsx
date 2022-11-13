@@ -17,13 +17,11 @@ import {
     useColorModeValue,
     useBreakpointValue,
     useDisclosure,
+    Image,
     Portal,
     PopoverArrow,
     PopoverHeader,
-    Input,
-    PopoverBody,
-    PopoverFooter,
-    PopoverCloseButton,
+    Input
 } from '@chakra-ui/react';
 import {
     HamburgerIcon,
@@ -36,11 +34,18 @@ import { Register } from '../Registration/Register'
 import { Login } from '../Registration/Login'
 import { NavLink } from 'react-router-dom'
 import styles from '../Landing/MiddleSection.module.css'
+import style from './Navbar.module.css'
 import { Search2Icon } from '@chakra-ui/icons'
 import { BsHeart, BsBagPlus } from "react-icons/bs"
 import { BiLock } from 'react-icons/bi'
 import { useSelector, useDispatch } from 'react-redux'
 import { auth_signOut } from '../../Redux/Auth/actionTypes'
+import { AiFillLock, AiFillUnlock, AiOutlineShoppingCart,  } from 'react-icons/ai'
+import { BsPen} from 'react-icons/bs'
+import {FiSearch } from 'react-icons/fi'
+import { AiOutlineShop } from 'react-icons/ai'
+import { FaUserAlt } from 'react-icons/fa'
+import { RiArrowDropDownFill, RiArrowDropUpFill } from 'react-icons/ri'
 
 const links = [
 
@@ -57,159 +62,74 @@ export const Navbar = () => {
     const { isOpen, onToggle } = useDisclosure();
 
     const isAuth = useSelector(store => store.auth.data.isAuth)
+    const Usertype = useSelector(store => store.auth.data.type)
     const dispatch = useDispatch();
 
 
 
     return (
-        <Box height={'170px'}>
-            <div style={{ position: "fixed", width: "100%", top: "0", backgroundColor: "white", zIndex: "100" }}>
-                <div >
-                    {/* uppar navbar */}
-                    <div className="Mbox1" style={{ border: "1px solid gray", borderTop: "none", borderRight: "none", borderLeft: "none", height: "40px", width: "80%", display: "flex", justifyContent: "space-evenly", overflow: "hidden", marginLeft: "10%", backgroundColor: "white" }}>
+        <Box position='sticky' top={0} zIndex='10'>
+            <div style={{  width: "100%", top: "0", backgroundColor: "white", zIndex: "100" }}>
 
-                        <div className='Sbox11' style={{ height: "auto", width: "40%", margin: "auto" }}>
-                            <Select className='country1' placeholder='Country' size='sm' width="120px" border="none" color="black" >
-                                <option value='option1'>INDIA</option>
-                                <option value='option2'>USA</option>
-                                <option value='option3'>RUSSIA</option>
-                                <option value='option1'>CHINA</option>
-                                <option value='option2'>JAPAN</option>
-                                <option value='option3'>NEPAL</option>
-                                <option value='option1'>BHUTAN</option>
-                                <option value='option2'>FRANCE</option>
-                                <option value='option3'>UK</option>
-                                <option value='option1'>India</option>
-                                <option value='option2'>Usa</option>
-                                <option value='option3'>China</option>
-                            </Select>
-                            <div className='customer' style={{ marginTop: "-29px", marginLeft: "-110px" }}>
-                                {/* <h5 style={{ color:"black"}}>CUSTOMER CARE</h5> */}
-                                <p style={{ fontSize: "13px", fontWeight: "bold", marginTop: "2px" }}>CUSTOMER CARE</p>
-                            </div>
+                
+                <Flex className={style.upNav} w={['100%','95%','80%']} justify='space-between' p={['5px 15px','5px 20px','5px 40px']} m='auto' borderBottom='1px solid grey' >
+                    <Flex className={style.upNav1} display={['none', 'flex','flex']}>
+                        <Box className={style.upNav1Tab1}>
+                            <Text>Country</Text>
+                            <RiArrowDropDownFill size='25px'/>
 
+                        </Box>
+                        <Box className={style.upNav1Tab1}><Text>Customer Care</Text></Box>
+                    </Flex>
+                    <Flex className={style.upNav2} display={['flex']}>
+                        <Box className={style.upNav2Tab1}>
+                            {!isAuth ?
+                                <BsPen ml='5px' />
+                                : Usertype === 'seller' ?
+                                    <AiOutlineShop ml='5px' />
+                                    : <FaUserAlt ml='5px' />
 
-                        </div>
+                            }
+                            {isAuth ? ""
+                                : <NavLink to="/register"><Text>Register</Text></NavLink>
+                            }
+                            {isAuth && Usertype === 'seller' ?
+                                <NavLink to="/admin"><Text>Seller</Text></NavLink>
+                                : Usertype === 'customer' ?
+                                    <Text>Customer</Text>
+                                    : ""
+                            }
+                        </Box>
+                        <Box className={style.upNav2Tab1}>
 
-
-                        <div className='Sbox11' style={{ height: "auto", width: "40%", margin: "auto", display: "flex", justifyContent: "flex-end" }}>
-
-                            <NavLink to="/register">
-                                <Button colorScheme='gray' variant='ghost' color="black" marginRight="10px" size='sm'>
-                                    Register
-                                </Button>
-
-                            </NavLink>
-
-
+                            {isAuth ? <AiFillLock /> : <AiFillUnlock />}
                             {isAuth ?
-                                <div style={{ display: "flex" }} onClick={() => { dispatch({ type: auth_signOut }) }}>
-                                    <BiLock style={{ height: "50px", width: "21%", marginTop: "-10" }} />
-                                    {/* <NavLink to="/login"> */}
-                                    <Button colorScheme='gray' variant='ghost' color="black" size='sm' >
-                                        Logout
-                                    </Button>
-
-                                    {/* </NavLink> */}
-
-                                </div>
-                                : <div style={{ display: "flex" }}>
-                                    <BiLock style={{ height: "50px", width: "21%", marginTop: "-10" }} />
-                                    <NavLink to="/login">
-                                        <Button colorScheme='gray' variant='ghost' color="black" size='sm' >
-                                            Login
-                                        </Button>
-
-                                    </NavLink>
-
-                                </div>}
-
-                        </div>
+                                <Text onClick={() => { dispatch({ type: auth_signOut }) }}>Logout</Text>
+                                : <NavLink to="/login"><Text>Login</Text></NavLink>
+                            }
+                        </Box>
+                    </Flex >
+                </Flex>
 
 
-
-
-
-
-                    </div>
-                    {/* <div className='line'>
-                    <hr style={{ borderTop: "1px solid red" ,marginTop:"10px"}} />
-
-                </div> */}
-
-
-                </div>
 
                 {/* middle start */}
-                <div>
-                    <div style={{ height: "65px", width: "80%", display: "flex", justifyContent: "space-around", marginLeft: "10%", backgroundColor: "white" }}>
-                        <Box w="35%">
-                            <Stack>
-                                <div className={styles.mainPages}>
-                                    {links.map((link) => (
-                                        <NavLink
-
-                                            className={({ isActive }) => {
-                                                return isActive ? styles.active : styles.default;
-                                            }}
-                                            key={link.path}
-                                            to={link.path}
-                                            end
-                                        >
-
-                                            <Button colorScheme='gray' variant='ghost' color="black" size='sm' >
-                                                {link.title}
-                                            </Button>
-
-                                        </NavLink>
-
-                                    ))}
-
-
-
-
-                                </div>
-
-                            </Stack>
-
-                        </Box>
-                        <Box w="30%" >
-                            <Box className={styles.middlelogo}>
-                                <img src="https://i.postimg.cc/0Nzmz4DK/logo-wrdrb.png" alt="" />
-
-                            </Box>
-
-                        </Box>
-
-                        <Box w="30%" >
-                            <Box w="70%" justifyContent="space-around" display="flex" margin="auto">
-                                {/* <Stack>
-                    <Popover>
-                        <PopoverTrigger>
-
-                            <Search2Icon w="30px" h="23px" color="black" marginTop="15px" cursor="pointer" />
-                        </PopoverTrigger>
-                        <PopoverContent w="430px"  height="70px">
-                            <PopoverArrow  />
-                           
-                            <PopoverHeader  >
-                                <Box display="flex" gap="8px">
-                                    <Input w="350px" placeholder="Search News" h="50px" bg="white" fontSize="22px" />
-                                    <Button marginTop="4px">Search</Button>
-                                </Box>
-
-                            </PopoverHeader>
-
-
-                        </PopoverContent>
-                    </Popover>
-                </Stack> */}
-
-                                <Popover>
+                <Flex className={style.midNav} w={['100%','95%','80%']} p={['15px 15px','15px 20px','15px 40px']} m='auto'>
+                    <Flex>
+                        <NavLink to='/womens'><Text>Women</Text></NavLink>
+                        <NavLink to='/mens'><Text>Men</Text></NavLink>
+                        <NavLink to='/kids'><Text>kids</Text></NavLink>
+                    </Flex>
+                    <Flex>
+                        <Image src='https://i.postimg.cc/0Nzmz4DK/logo-wrdrb.png' width='100px'/>
+                    </Flex>
+                    <Flex>
+                        <Box>
+                        <Popover>
                                     <PopoverTrigger>
-                                        <Search2Icon w="30px" h="23px" color="black" marginTop="15px" cursor="pointer" />
+                                        <FiSearch/>
                                     </PopoverTrigger>
-                                    <Portal>
+                                    <Portal left='300px'>
                                         <PopoverContent w="430px" height="70px">
                                             <PopoverArrow />
 
@@ -225,35 +145,15 @@ export const Navbar = () => {
                                         </PopoverContent>
                                     </Portal>
                                 </Popover>
-   
-
-                                <Box>
-                                    <BsHeart style={{ height: "35px", width: "75%", marginTop: "10px" }} />
-                                </Box>
-
-                                <Box>
-                                    <NavLink to="/cart">
-                                        <BsBagPlus style={{ height: "35px", width: "75%", marginTop: "10px" }} />
-                                    </NavLink>
-                                </Box>
-
-                            </Box>
-
-
-
-
                         </Box>
-
-
-                    </div>
-                </div>
-
-
-
-
-
-
-
+                        <Box>
+                            <BsHeart/>
+                        </Box>
+                        <Box>
+                            <AiOutlineShoppingCart/>
+                        </Box>
+                    </Flex>
+                </Flex>
 
 
 
@@ -261,9 +161,7 @@ export const Navbar = () => {
 
 
 
-
-
-
+                {/* black nav */}
 
 
                 <Box>

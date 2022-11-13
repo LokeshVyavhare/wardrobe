@@ -10,4 +10,6 @@ export const Cart_Update_Items_Success = 'cart/Update/success';
 export const Cart_Delete_Items_Loading = 'cart/Delete/loading';
 export const Cart_Delete_Items_Error = 'cart/Delete/error';
 export const Cart_Delete_Items_Success = 'cart/Delete/success';
-export const Empty_Cart = 'empty/cart';
+export const Cart_Empty_Items_Loading = 'cart/Empty/loading';
+export const Cart_Empty_Items_Error = 'cart/Empty/error';
+export const Cart_Empty_Items_Success = 'cart/Empty/success';

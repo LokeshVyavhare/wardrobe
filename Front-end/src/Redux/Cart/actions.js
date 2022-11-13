@@ -11,7 +11,9 @@ import {
     Cart_Update_Items_Error,
     Cart_Update_Items_Loading,
     Cart_Update_Items_Success,
-    Empty_Cart
+    Cart_Empty_Items_Error,
+    Cart_Empty_Items_Loading,
+    Cart_Empty_Items_Success,
 } from './actionTypes'
 import axios from 'axios';
 
@@ -75,6 +77,39 @@ export const updateCartItem = (token, cartId, quantity) => async (dispatch)=> {
     }
 }
 
-export const empty_Cart = () => {
-    return {type: Empty_Cart}
+export const Delete_Cart_Item = (token, cartId) => async (dispatch)=> {
+
+
+    dispatch({type:Cart_Delete_Items_Loading});
+    const id = token.split("-")[0];
+
+
+    try{
+        let req =await axios.delete(`https://wardrobe-server.onrender.com/carts/${cartId}`, {headers:{token:token}});
+        dispatch({type:Cart_Delete_Items_Success, payload: cartId});
+        alert('item deleted successfully')
+
+    }catch(err){
+        dispatch({type:Cart_Delete_Items_Error})
+        alert(err.message)
+    }
 }
+
+export const Empty_Cart_Item = (token) => async (dispatch)=> {
+
+
+    dispatch({type:Cart_Empty_Items_Loading});
+    const id = token.split("-")[0];
+
+
+    try{
+        let req =await axios.delete(`https://wardrobe-server.onrender.com/carts/${id}`, {headers:{token:token}});
+        dispatch({type:Cart_Empty_Items_Success});
+        alert('Cart Emptied successfully')
+
+    }catch(err){
+        dispatch({type:Cart_Empty_Items_Error})
+        alert(err.message)
+    }
+}
+
