@@ -1,56 +1,56 @@
 import React from 'react';
-import {useSelector , useDispatch} from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { getCategory } from '../../Redux/Category/actions';
 import styled from 'styled-components';
 import CategoryCard from './CategoryCard';
 import Filter from './Filter';
 
 const Category = () => {
-const {data, error , loading }= useSelector((store) => store.category);
-const dispatch = useDispatch();
+  const { data, error, loading } = useSelector((store) => store.category);
+  const dispatch = useDispatch();
 
-React.useEffect(() => {
+  React.useEffect(() => {
     dispatch(getCategory())
-}, []);
+  }, []);
 
-if(error){
-  return <h1>...Error</h1>
-}else if(loading){
-  return <h1>...Loading</h1>
-}else
+  if (error) {
+    return <h1>...Error</h1>
+  } else if (loading) {
+    return <h1>...Loading</h1>
+  } else
 
-  return (
-    <div>
-      <Wrapper>
+    return (
+      <div>
+        <Wrapper>
 
-        <WrapperFilter>
+          <WrapperFilter>
 
-         <Filter />
+            <Filter />
 
 
 
-        </WrapperFilter>
+          </WrapperFilter>
 
-        <WrapperProducts>
-         {
-            data.map((el) => (
+          <WrapperProducts>
+            {
+              data.map((el) => (
                 <div key={el.id}>
 
-               <CategoryCard
-               key={el.id}
-               src={el.image2}
-               name= {el.name}
-               description = {el.description}
-               price= {el.prize}
-               />
-               </div>
-         ))
-         }
-        </WrapperProducts>
+                  <CategoryCard
+                    key={el.id}
+                    src={el.image2}
+                    name={el.name}
+                    description={el.description}
+                    price={el.prize}
+                  />
+                </div>
+              ))
+            }
+          </WrapperProducts>
 
-      </Wrapper>
-    </div>
-  )
+        </Wrapper>
+      </div>
+    )
 }
 
 const Wrapper = styled.div`
@@ -74,4 +74,4 @@ justify-content : center;
 grid-gap : 10px
 `;
 
-export  {Category}
+export { Category }

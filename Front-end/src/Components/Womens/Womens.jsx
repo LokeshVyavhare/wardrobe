@@ -18,13 +18,13 @@ import Sliderr from "./Slider"
 import Sliderr2 from "./Slider2"
 const wlinkp = [
     {
-        path: "", title: "HUGO", subtitle: "Express yourself", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_1_Hugo_Tris_W.jpg?634485886869569819#width=473&height=660"
+        path: "/category/footwear", title: "HUGO", subtitle: "Express yourself", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_1_Hugo_Tris_W.jpg?634485886869569819#width=473&height=660"
     },
     {
-        path: "", title: "MONTBLANG", subtitle: "It's gifting season!", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_6_Montblanc_W_Tris.jpg?634485886869569819#width=473&height=660"
+        path: "/category/footwear", title: "MONTBLANG", subtitle: "It's gifting season!", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_6_Montblanc_W_Tris.jpg?634485886869569819#width=473&height=660"
     },
     {
-        path: "", title: "FURLA", subtitle: "FALL/WINTER 2022 COLLECTION", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_5_Furla_W_Tris.jpg?634485886869569819#width=473&height=660"
+        path: "/category/footwear", title: "FURLA", subtitle: "FALL/WINTER 2022 COLLECTION", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_5_Furla_W_Tris.jpg?634485886869569819#width=473&height=660"
     }
 ]
 
@@ -39,7 +39,7 @@ export const Womens = () => {
             >
                 <Box bg='green.400' w="91%" h="10vh" margin="auto" p={4} color='white' className={style.ofheading}>
                     <h1 className={style.heading}><a href=''>SINGLES'DAY:UP TO 90% OFF</a></h1>
-                    <h1 className={style.h}><a href=''>ENDS 11/11</a></h1>
+                    <h1 className={style.h}><a href='' >ENDS 11/11</a></h1>
                 </Box>
 
                 <Box boxSize='full'>
