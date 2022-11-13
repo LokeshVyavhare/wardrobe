@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from "react-redux"
+import {useSelector , useDispatch} from "react-redux"
 import { getCategory } from '../../Redux/Category/actions';
 import styled from 'styled-components';
 import CategoryCard from './CategoryCard';
@@ -9,13 +9,6 @@ import {Link} from "react-router-dom";
 import { useParams } from 'react-router-dom';
 
 const Category = () => {
-  const { data, error, loading } = useSelector((store) => store.category);
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    dispatch(getCategory())
-  }, []);
-
 const {data, error , loading }= useSelector((store) => store.category);
 const dispatch = useDispatch();
 const { category } = useParams();
@@ -24,21 +17,11 @@ React.useEffect(() => {
     dispatch(getCategory(category))
 }, []);
 
-
-  if (error) {
-    return <h1>...Error</h1>
-  } else if (loading) {
-    return <h1>...Loading</h1>
-  } else
-
-
-    return (
-      <div>
-        <Wrapper>
-
-          <WrapperFilter>
-
-            <Filter />
+if(error){
+  return <h1>...Error</h1>
+}else if(loading){
+  return <h1>...Loading</h1>
+}else
 
   return (
     <div>
@@ -49,34 +32,9 @@ React.useEffect(() => {
            View more</p>
       </div>
 
-
       <Wrapper>
 
        
-
-
-          </WrapperFilter>
-
-          <WrapperProducts>
-            {
-              data.map((el) => (
-                <div key={el.id}>
-
-                  <CategoryCard
-                    key={el.id}
-                    src={el.image2}
-                    name={el.name}
-                    description={el.description}
-                    price={el.prize}
-                  />
-                </div>
-              ))
-            }
-          </WrapperProducts>
-
-        </Wrapper>
-      </div>
-    )
 
         <WrapperFilter>
           <Filter />
@@ -103,11 +61,9 @@ React.useEffect(() => {
       </Wrapper>
     </div>
   )
-
 }
 
 const Wrapper = styled.div`
-
 display : flex;
 height : auto;
 width : 70%;
@@ -128,6 +84,5 @@ grid-gap : 10px;
 font-size : 15px
 `;
 
-export { Category }
 
 export  {Category}
