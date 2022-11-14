@@ -18,20 +18,27 @@ import {HiOutlinePlus} from 'react-icons/hi'
 import { GetCartItems } from "../../Redux/Cart/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { AlertDialogExample } from "./Checkout";
+import {useNavigate} from 'react-router-dom'
+import { Loading } from "../Loading/Loading";
 
 
 export const Cart = () => {
     const token = useSelector(store=>store.auth.data.token);
     const data = useSelector(store=>store.cart.data);
-    const loading = useSelector(store=>store.cart.loading);
+    const getloading = useSelector(store=>store.cart.getloading);
+    const isAuth = useSelector(store=>store.auth.data.isAuth);
     const [itemPrice, setItemPrice] = useState(0);
     const [modePrice, setModerice] = useState(0);
     const [mode, setMod] = useState(true);
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(GetCartItems(token));
-    }, [])
+    const navigator = useNavigate()
 
+    useEffect(() => {
+        if(isAuth){
+            dispatch(GetCartItems(token));
+        }
+    }, [isAuth])
+    
     useEffect(()=>{
         if(mode){
             setModerice(9.95)
@@ -39,7 +46,7 @@ export const Cart = () => {
             setModerice(14.95)
         }
     }, [mode])
-
+    
     useEffect(()=>{
         let totalPrice =0;
         data.forEach((item)=>{
@@ -57,6 +64,12 @@ export const Cart = () => {
         setPmcStatus(!pmcStatus);
     }
 
+    if(!isAuth){
+        navigator('/login');
+    }
+    if(getloading){
+        return <Loading/>
+    }
     if(data.length === 0){
         return <div className={style.empty}>
             <Box className={style.empty2} w={["90%", "80%", "60%", "50%"]}>

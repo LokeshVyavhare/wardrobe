@@ -17,6 +17,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AddToCart } from "../../Redux/Cart/actions";
+import { Loading } from "../Loading/Loading";
+import style from './Product.module.css'
 export const Product = () => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
@@ -24,6 +26,7 @@ export const Product = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const toast = useToast();
+  const [loading, setLoading] = useState(false);
 
   const cartSuccess = () =>
     toast({
@@ -65,18 +68,31 @@ export const Product = () => {
   // },
 
   useEffect(() => {
+    setLoading(true);
     const getData = async (id) => {
       console.log(id);
       let { data } = await axios.get(
         `https://wardrobe-server.onrender.com/products/${id}`
       );
       setProduct(data);
+
     };
-    getData(id);
+    getData(id).then(()=>{setLoading(false)});
+
   }, []);
+
+  if(loading){
+    return <Loading />
+  }
   return (
-    <Box mt="150px">
+    <Box>
+      <div className={style.topBanner}>
+      <h1 className={style.h1}>{product.name}</h1>
+          <p className={style.para}>The great standard-bearer of 90s minimalism, Jil Sander continues to please its followers with streamlined, modern styles: for women, that means sleek and masculine tailored separates anchored by cult-hit shoes; and for men, everything from suiting, to sneakers, to denim – all with a contemporary edge...
+           View more</p>
+      </div>
       <Box w="60%" m="auto">
+    
         <Flex direction={["column", "row", "row", "row "]} gap={16}>
           <Box>
             <Image src={product.image1} />
