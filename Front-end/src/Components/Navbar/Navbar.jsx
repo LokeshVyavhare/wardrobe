@@ -67,7 +67,7 @@ export const Navbar = () => {
     const Usertype = useSelector(store => store.auth.data.type)
     const count = useSelector(store => store.cart.count)
     const dispatch = useDispatch();
-    const [dropUser, setDropUser] = useState(false);
+    const [dropUser, setDropUser] = useState(true);
     const [cartCount, setCartCount] = useState(0)
 
     useEffect(()=>{
@@ -129,12 +129,12 @@ export const Navbar = () => {
                             </Box>
                             {dropUser?"":
                             <Box  className={style.specDropBox}>
-                                <Box className={style.specDrop}><NavLink to="/mens"><Text>Men</Text></NavLink></Box>
-                                <Box className={style.specDrop}><NavLink to="/womens"><Text>Women</Text></NavLink></Box>
-                                <Box className={style.specDrop}><NavLink to="/kids"><Text>Kids</Text></NavLink></Box>
-                                <Box className={style.specDrop}><NavLink to="/admin"><Text>Seller</Text></NavLink></Box>
-                                <Box className={style.specDrop}>{isAuth?"":<NavLink to="/register"><Text>Register</Text></NavLink>}</Box>
-                                <Box className={style.specDrop}>{isAuth ?
+                                <Box className={style.specDrop} onClick={()=>{setDropUser(true)}}><NavLink to="/mens"><Text>Men</Text></NavLink></Box>
+                                <Box className={style.specDrop} onClick={()=>{setDropUser(true)}}><NavLink to="/womens"><Text>Women</Text></NavLink></Box>
+                                <Box className={style.specDrop} onClick={()=>{setDropUser(true)}}><NavLink to="/kids"><Text>Kids</Text></NavLink></Box>
+                                <Box className={style.specDrop} onClick={()=>{setDropUser(true)}}><NavLink to="/admin"><Text>Seller</Text></NavLink></Box>
+                                <Box className={style.specDrop} onClick={()=>{setDropUser(true)}}>{isAuth?"":<NavLink to="/register"><Text>Register</Text></NavLink>}</Box>
+                                <Box className={style.specDrop} onClick={()=>{setDropUser(true)}}>{isAuth ?
                                 <Text onClick={() => { dispatch({ type: auth_signOut }) }}>Logout</Text>
                                 : <NavLink to="/login"><Text>Login</Text></NavLink>
                                 }</Box>
@@ -455,10 +455,10 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
     {
-        label: 'FOOTWERE',
+        label: 'FOOTWEAR',
         children: [
             {
-                label: 'footwere',
+                label: 'footwear',
                 subLabel: 'Trending CLOTHING',
                 href: `/category/footwear`,
             },
@@ -485,25 +485,25 @@ const NAV_ITEMS: Array<NavItem> = [
         ],
     },
     {
-        label: 'LOWERWERE',
+        label: 'LOWERWEAR',
         children: [
             {
                 label: 'Lower',
                 subLabel: 'Find your dream lower',
-                href: "/category/lowerwere",
+                href: "/category/lowerwear",
             },
             {
                 label: 'Dresses',
                 subLabel: 'An exclusive list ',
-                href: '/category/lowerwere',
+                href: '/category/lowerwear',
             },
         ],
     },
     {
-        label: 'INNERWERE',
+        label: 'INNERWEAR',
         children: [
             {
-                label: 'Innerwere',
+                label: 'Innerwear',
                 subLabel: 'Find your dream Innerwere',
                 href: "/category/innerwear",
             },
