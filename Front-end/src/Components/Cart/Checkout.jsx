@@ -32,15 +32,28 @@ import style from './cart.module.css'
 import React from 'react';
 import { Empty_Cart_Item } from '../../Redux/Cart/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import { useToast } from '@chakra-ui/react'
 
 export function AlertDialogExample() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const cancelRef = React.useRef()
+    const toast = useToast();
     const dispatch = useDispatch();
     const token = useSelector(store=>store.auth.data.token)
 
+    const login_success =  ()=>{
+      toast({
+          title: 'Successful',
+          description: "Your Items Will Be Delivered Shortly!",
+          status: 'success',
+          duration: 5000,
+          isClosable: true,
+      });
+    }
+
     const checkout = () => {
-        dispatch(Empty_Cart_Item(token))
+        dispatch(Empty_Cart_Item(token,login_success));
+
         onClose();
     }
   

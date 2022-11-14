@@ -42,7 +42,7 @@ export const Product = () => {
       title: "Failed",
       description: "Something went wrong.",
       status: "error",
-      duration: 9000,
+      duration: 4000,
       isClosable: true,
     });
   const toaster = {

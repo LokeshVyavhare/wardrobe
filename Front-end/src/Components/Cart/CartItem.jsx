@@ -9,13 +9,26 @@ import {
 import style from './cart.module.css'
 import {useDispatch, useSelector} from 'react-redux'
 import { updateCartItem, Delete_Cart_Item } from '../../Redux/Cart/actions'
+import { useToast } from '@chakra-ui/react'
 
 export const CartItem = ({data}) => {
     const {quantity, product, _id} = data
     const {id, name, image1, category, price, tags} = product;
     const dispatch = useDispatch()
     const token = useSelector(store=>store.auth.data.token);
-    
+    const toast = useToast();
+
+
+    const deleted =  ()=>{
+        toast({
+            title: 'Deleted',
+            description: "Item Removed From Cart",
+            status: 'error',
+            duration: 5000,
+            isClosable: true,
+        });
+
+    }    
 
     const addCount = ()=>{
         dispatch(updateCartItem(token, _id, quantity+1))
@@ -25,7 +38,7 @@ export const CartItem = ({data}) => {
         dispatch(updateCartItem(token, _id, quantity-1))
     }
     const handleDelete = () => {
-        dispatch(Delete_Cart_Item(token, _id))
+        dispatch(Delete_Cart_Item(token, _id,deleted))
     }
 
 
