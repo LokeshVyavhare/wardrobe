@@ -17,13 +17,13 @@ import Sliderr from "./Mslider"
 import Msliderr2 from "./Mslider2"
 const mwlinkp = [
     {
-        path: "", title: "HUGO", subtitle: "Express yourself", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_1_Hugo_Tris_M.jpg?634485886869569819#width=473&height=660"
+        path: "/category/upperwear", title: "HUGO", subtitle: "Express yourself", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_1_Hugo_Tris_M.jpg?634485886869569819#width=473&height=660"
     },
     {
-        path: "", title: "MONTBLANG", subtitle: "It's gifting season!", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_6_Montblanc_W_Tris.jpg?634485886869569819#width=473&height=660"
+        path: "/category/tradition", title: "MONTBLANG", subtitle: "It's gifting season!", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_6_Montblanc_W_Tris.jpg?634485886869569819#width=473&height=660"
     },
     {
-        path: "", title: "BOSS", subtitle: "Be your own BOSS", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_1_Boss_M_Tris.jpg?634485886869569819#width=473&height=660"
+        path: "/category/footwear", title: "BOSS", subtitle: "Be your own BOSS", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_1_Boss_M_Tris.jpg?634485886869569819#width=473&height=660"
     }
 ]
 

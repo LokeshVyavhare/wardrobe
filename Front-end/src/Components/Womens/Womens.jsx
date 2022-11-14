@@ -18,10 +18,10 @@ import Sliderr from "./Slider"
 import Sliderr2 from "./Slider2"
 const wlinkp = [
     {
-        path: "/category/footwear", title: "HUGO", subtitle: "Express yourself", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_1_Hugo_Tris_W.jpg?634485886869569819#width=473&height=660"
+        path: "/category/upperwear", title: "HUGO", subtitle: "Express yourself", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_1_Hugo_Tris_W.jpg?634485886869569819#width=473&height=660"
     },
     {
-        path: "/category/footwear", title: "MONTBLANG", subtitle: "It's gifting season!", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_6_Montblanc_W_Tris.jpg?634485886869569819#width=473&height=660"
+        path: "/category/tradition", title: "MONTBLANG", subtitle: "It's gifting season!", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_6_Montblanc_W_Tris.jpg?634485886869569819#width=473&height=660"
     },
     {
         path: "/category/footwear", title: "FURLA", subtitle: "FALL/WINTER 2022 COLLECTION", imgLink: "https://www.yoox.com/images/yoox80/banners/6825_5_Furla_W_Tris.jpg?634485886869569819#width=473&height=660"
@@ -110,7 +110,7 @@ export const Womens = () => {
                 </Flex>
             </Box>
             <Box className={style.sl1}>
-                <Grid templateColumns='repeat(2, 1fr)' gap={0}>
+                <Grid templateColumns={["1fr","1fr","1fr","1fr 1fr"]} gap={0}>
 
                     <Box className={style.sl11} w='350px' h='533.66'>
                         <Box className={style.sll1}  >
@@ -119,7 +119,7 @@ export const Womens = () => {
                         </Box>
 
                     </Box>
-                    <Box w='1035px' h='533.66' bg='' className={style.sld}>
+                    <Box w={["500px","800px","1000px"]} h='533.66' bg='' className={style.sld}>
                         <Sliderr />
                     </Box>
 
@@ -156,7 +156,7 @@ export const Womens = () => {
             </Box>
 
             <Box className={style.sl1}>
-                <Grid templateColumns='repeat(2, 1fr)' gap={0} className={style.suraj}>
+                <Grid templateColumns={["1fr","1fr","1fr","1fr 1fr"]} gap={0} className={style.suraj}>
 
                     <Box className={style.sl11} w='350px' h='533.66'>
                         <Box className={style.sll1}  >
@@ -165,7 +165,7 @@ export const Womens = () => {
                         </Box>
 
                     </Box>
-                    <Box w='1035px' h='533.66' bg='' className={style.sld}>
+                    <Box w={["500px","800px","1000px"]} h='533.66' bg='' className={style.sld}>
                         <Sliderr2 />
                     </Box>
 
@@ -186,7 +186,7 @@ export const Womens = () => {
             </Box>
 
             <Box boxSize="full" w="90%" margin="auto" className={style.limg} >
-                <Grid templateColumns='repeat(2, 1fr)' >
+                <Grid templateColumns={["1fr","1fr","1fr","1fr 1fr"]} >
                     <Box boxSize='full'>
                         <Image src='https://www.yoox.com/images/yoox80/banners/6769_1_DesignArtHomedecor_WM_Bottom.png?634485886869569819#width=690&height=637' alt='The Grand' />
                         <Box w="500px" h="150px" className={style.wimgb123f1} bg="white">
