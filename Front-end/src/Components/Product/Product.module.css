@@ -1,0 +1,15 @@
+.topBanner{
+    width: 70%;
+    margin: auto;
+    margin-bottom: 50px;
+    padding: 45px 0 0;
+}
+.para{
+    font-family: Montserrat,sans-serif;
+    font-size:  .8125rem;
+}  
+.h1{
+    font-weight: 700;
+    font-size: 24px;
+    font-family: Montserrat,sans-serif;
+}

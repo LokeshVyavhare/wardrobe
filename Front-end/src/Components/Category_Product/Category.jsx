@@ -7,6 +7,7 @@ import Filter from './Filter';
 import styles from "./Category.module.css";
 import {Link} from "react-router-dom";
 import { useParams } from 'react-router-dom';
+import { Loading } from "../Loading/Loading";
 
 const Category = () => {
 const {data, error , loading }= useSelector((store) => store.category);
@@ -20,7 +21,7 @@ React.useEffect(() => {
 if(error){
   return <h1>...Error</h1>
 }else if(loading){
-  return <h1>...Loading</h1>
+  return <Loading />
 }else
 
   return (
@@ -47,7 +48,8 @@ if(error){
                 <Link to={`/product/${el._id}`} key={el._id}>
                <CategoryCard
                key={el.id}
-               src={el.image2}
+               src1={el.image1}
+               src2={el.image2}
                name= {el.name}
                description = {el.description}
                price= {el.price}

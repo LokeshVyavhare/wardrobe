@@ -57,7 +57,7 @@ function ButtonPopup() {
   return (
     <>
       {/* <Button onClick={onOpen} marginTop="-50px" w="200px" bg="#333333" color="white">SIGN UP</Button> */}
-      <Button onClick={onOpen} marginTop="-50px" w="200px" bg="#333333" color="white" colorScheme='purple' >
+      <Button onClick={onOpen}  w="200px" bg="#333333" color="white" borderRadius='0' colorScheme='black' >
       SIGN UP
         </Button>
 

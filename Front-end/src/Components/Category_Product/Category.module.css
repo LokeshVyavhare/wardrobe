@@ -22,3 +22,19 @@
     width: 100%;
     z-index: -1;
 }
+.desc{
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Montserrat',sans-serif;
+  margin: 10px auto;
+  font-size: 13px;
+  color: grey;
+}
+
+.name{
+    font-family: 'Montserrat',sans-serif;
+    margin: 10px auto;
+    font-weight: 700;
+    font-size: 16px;
+}

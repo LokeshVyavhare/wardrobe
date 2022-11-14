@@ -1,6 +1,6 @@
 .foot{
-    margin-top: 80px;
-    
+    /* margin-top: 80px; */
+    border-top: 4px solid grey;
 }
 
 
@@ -12,4 +12,68 @@
     border-radius: 10px;
    margin-left: 37px;
     
+}
+
+
+/* UpFooter */
+
+.upFootBox{
+    padding: 15px 20px;
+    width: 160px;
+}
+.upFootBox .upFootBoxHead{
+    font-size: 16px;
+    font-family: 'Montserrat',sans-serif;
+    padding: 15px 2px;
+}
+.upFootBoxBr{
+    border:1px solid #000;
+    width: 40px;
+    margin: 0 auto 15px;
+
+}
+.upFootBoxLink{
+    display: block;
+    font-size: 13px;
+    color:rgb(77, 76, 76);
+    margin: 10px auto;
+    font-family: 'Montserrat',sans-serif;
+}
+.inpMailbox .inpMail{
+    background-color: #f3f3f3;
+    padding: 7px 14px;
+    display: block;
+    width: 100%;
+}
+.inpMailbox .inpMail{
+    outline: none;
+}
+.inpMailbox .inpMail:hover, .inpMailbox .inpMail:active{
+    border-bottom: 2px solid orange;
+}
+
+.radioBox .radio{
+    display:block;
+    width: 50%;
+    font-size: 14px;
+    font-weight: 700;
+}
+.radioBox{
+    padding: 15px 0;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.mediaSection{
+
+}
+.mediaSection .mediaIcon{
+    font-size: 19px;
+    margin: 0 12px;
+    color: rgb(56, 55, 55);
+}
+
+.mediaSection .mediaIcon:hover{
+    color: rgb(0, 0, 0);
 }
