@@ -11,17 +11,17 @@
 
 /* All PRoducts */
 
-.filterBox{
-    width: 300px;
-    height: 70vh;
-    background-color: #fff;
-}
-.AllproductBox{
-    height: 100vh;
 
-    width: 70%;
-    overflow: scroll;
+.AllproductBox{
+    margin: auto;
 }
+ /* .AllproductBox {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+.AllproductBox::-webkit-scrollbar { 
+    display: none;  
+}  */
 
 .productBox{
     background-color: #fff;

@@ -103,7 +103,7 @@ export const Empty_Cart_Item = (token) => async (dispatch)=> {
 
 
     try{
-        let req =await axios.delete(`https://wardrobe-server.onrender.com/carts/${id}`, {headers:{token:token}});
+        let req =await axios.delete(`https://wardrobe-server.onrender.com/carts/empty/${id}`, {headers:{token:token}});
         dispatch({type:Cart_Empty_Items_Success});
         alert('Cart Emptied successfully')
 
