@@ -14,11 +14,11 @@
 }
 
 .upNav2{
-    justify-content: space-between
+    
 }
 
 
-.upNav2Tab1, .upNav1Tab1 {
+.upNav2Tab1, .upNav1Tab1, .upNav2TabSpec{
     display: flex;
     justify-content: space-between;
     padding:5px 15px;
@@ -34,10 +34,11 @@
     text-transform:uppercase;
     padding-left: 10px;
 }
-.upNav2Tab1:hover{
+.upNav2Tab1:hover, .upNav1Tab1:hover{
     background-color: #f3f3f3;
+    border-radius: 10px;
 }
-.upNav2Tab1:hover p{
+.upNav2Tab1:hover p, .upNav1Tab1:hover p{
     text-decoration: none;
     color: black;
 }
@@ -50,4 +51,94 @@
 .midNav{
     justify-content: space-between;
     align-items: center;
+}
+
+.midNav1{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.midNav1 .midNav1Tab{
+    padding: 7px 30px;
+}
+.midNav1 .midNav1Tab:hover p{
+    background: linear-gradient(to bottom, rgb(255, 255, 255) 12px, rgb(251, 255, 2) 12px);
+    color: #000;
+}
+.midNav1 .midNav1Tab p{
+    font-family: 'Montserrat',sans-serif;
+    font-weight: 700;
+    text-transform:uppercase;
+}
+.midNav3{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.midNav3Tab{
+    padding: 5px 30px;
+}
+
+.midNav3Img{
+    font-size: 25px;
+}
+
+@media  only screen  and (min-width:200px) and (max-width:950px){
+    .midNav3Tab{
+        padding: 5px 15px;
+    }
+    
+    .midNav3Img{        
+        font-size: 20px;
+    }
+    .midNav1 .midNav1Tab p{
+        font-size: 13px;
+    }
+    .midNav1 .midNav1Tab{
+        padding: 7px 15px;
+    }
+}
+
+@media  only screen  and (min-width:400px) and (max-width:560px){
+    .upNav1 .upNav1Tab1{
+        padding: 5px;
+
+    }
+    .upNav1Tab1 p{
+        padding-left: 0;
+    }
+}
+
+.specDropBox{
+/* position='absolute' top='45px' left='10px' bg='rgb(250,250,250)' width={'120px'} zIndex='12' */
+position: absolute;
+top: 45px;
+left: 0;
+background-color:rgb(250,250,250) ;
+width: 120px;
+z-index: 12;
+}
+
+.specDropBox .specDrop{
+    padding: 10px 0px;
+    border: 1px solid #eee;
+    cursor: pointer;
+    
+}
+.specDropBox .specDrop:hover{
+    box-shadow: inset 0px 0px 5px grey;
+}
+
+.cartBadge{
+    position: absolute;
+    transform: translate(14px, -24px);
+    width: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #fff;
+    height: 15px;
+    background-color: rgb(255, 0, 0);
 }

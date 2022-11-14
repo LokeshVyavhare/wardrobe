@@ -1,7 +1,8 @@
 import { 
     Box,
     Flex,
-    Text
+    Text,
+     Grid
 
  } from "@chakra-ui/react";
 import style from './Admin.module.css';
@@ -9,10 +10,11 @@ import { useState, useEffect } from "react";
 import { Product } from "./Product";
 import axios from 'axios'
 
-const postProduct = async (next) => {
+const postProduct = async (next, o) => {
     try {
-        let req = await axios.get('https://wardrobe-server.onrender.com/products/');
-        next(req.data);
+        let req = await axios.get('https://wardrobe-server.onrender.com/admin/products?limit=16');
+        next(req.data.products);
+        o(req.data.count)
     } catch (err) {
         alert(err);
     }
@@ -20,19 +22,15 @@ const postProduct = async (next) => {
 
 export const AllProduct = () => {
     const [data, setData] = useState([]);
+    const [count, setCount] = useState(0);
     useEffect(() => {
-        postProduct(setData);
+        postProduct(setData, setCount);
     }, [])
 
 
     return <Box>
-        <Flex padding={'20px'} justify='space-between'>
-            <Box className={style.filterBox} boxShadow='lg'>
-
-            </Box>
-            <Box className={style.AllproductBox}>
+            <Grid className={style.AllproductBox} w={['90%']} p='35px 25px' gap='20px' gridTemplateColumns={['1fr', '1fr 1fr', '1fr 1fr 1fr', '1fr 1fr 1fr 1fr']}>
                 {data.map((item)=><Product data={item} key={'adminProduct'+item.id}/>)}
-            </Box>
-        </Flex>
+            </Grid>
     </Box>
 }

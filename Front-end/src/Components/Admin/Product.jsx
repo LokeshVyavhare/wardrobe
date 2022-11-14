@@ -5,23 +5,26 @@ import style from './Admin.module.css'
 import {RiDeleteBin5Line} from 'react-icons/ri'
 
 export const Product = ({data}) => {
-    const {image1, name, tags, category, price} = data;
-    return <Flex justify={'space-around'} boxShadow='lg' className={style.productBox} align={'center'}  direction={['column', 'column', 'row']} mb={['35px', '35px', '25px']}>
-    <Box>
-        <Image src={image1} width='75px'/>
-    </Box>
-    <Box width='20%'>
-        <Text fontWeight={700}>{name}</Text>
-        <Text>{tags}</Text>
-    </Box>
-    <Box>
-        <Text>{category}</Text>
-    </Box>
-    <Box>
-        <Text fontWeight={700}>$ {price}</Text>
-    </Box>
-    <Box>
-        <button className={style.productRemoveButton}> <RiDeleteBin5Line/></button>
-    </Box>
+    const {image1,image2, name, tags, category, price} = data;
+    return <Flex bg='#fff' h='250px' borderRadius='25px' shadow={'lg '} p='15px' direction='column' justify='space-between'>
+        <Flex justify='space-around' align='center'>
+        <Box>
+           <Image src={image1} alt='image' w='100px' h="100px" 
+           onMouseEnter={(e)=>{e.target.src=image2}}
+           onMouseLeave={(e)=>{e.target.src=image1}}
+           />
+        </Box>
+        <Flex direction={'column'}>
+            <Box>Price: ${price}</Box>
+            <Box>For Whom: {category}</Box>
+        </Flex>
+        </Flex>
+        <Box>
+            <Flex justify='center'><Text>Name :</Text><Text>{name}</Text></Flex>
+            <Box>Category: {tags}</Box>
+        </Box>
+        <Flex justify='center' align='baseline' justifySelf={'end'} m='0 auto' w='fit-content' cursor='pointer'>
+            <RiDeleteBin5Line size='30px'/>
+        </Flex>
     </Flex>
 }
