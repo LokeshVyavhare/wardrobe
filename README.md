@@ -35,7 +35,7 @@ This is a collaborative project to clone a e-commerce website, working model, fe
 
 ## Responsibilities:
 
-1) Shivang kumar:
+1)Shivang kumar:
 * Homepage
 * Navbar 
 * Footer 
