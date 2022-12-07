@@ -47,27 +47,27 @@ This is a collaborative project to clone a e-commerce website, working model, fe
 * Advertising Crousers
 
 3)Somya Ranjan Singh:
-    * Category-wise product display UI and pages
-    * category redux-management in redux
-    * Products & Category Related server APIs 
-    * Products & Category Related DataBase model mangement
-    * Misc Backend services & features
+* Category-wise product display UI and pages
+* category redux-management in redux
+* Products & Category Related server APIs 
+* Products & Category Related DataBase model mangement
+* Misc Backend services & features
 
 4)Abhijeet Kumar:
-    * Product Page & UI 
-    * product redux-management in redux
-    * Cart, wishlist & users(Auth) Related server APIs 
-    * Cart, wishlist & users(Auth) Related DataBase model mangement
-    * Misc Backend services & features
-    * Website Logo
+* Product Page & UI 
+* product redux-management in redux
+* Cart, wishlist & users(Auth) Related server APIs 
+* Cart, wishlist & users(Auth) Related DataBase model mangement
+* Misc Backend services & features
+* Website Logo
 
 5)Lokesh Vyavhare:
-    * Cart-page and purchase flow UI
-    * Auth, Cart-product redux-management in redux
-    * Login-signup Pages & UI
-    * Various styling & responsive features
-    * Admin pages & admin flow
-    * Leading & managing project
+* Cart-page and purchase flow UI
+* Auth, Cart-product redux-management in redux
+* Login-signup Pages & UI
+* Various styling & responsive features
+* Admin pages & admin flow
+* Leading & managing project
 
 ## Deployed Link: [Link](https://fixed-thread-889.netlify.app/)
 
