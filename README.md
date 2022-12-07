@@ -36,15 +36,15 @@ This is a collaborative project to clone a e-commerce website, working model, fe
 ## Responsibilities:
 
 1) Shivang kumar:
-    * Homepage
-    * Navbar 
-    * Footer 
+* Homepage
+* Navbar 
+* Footer 
 
 2)Suraj Sanjay Kokane:
-    * Mens Page
-    * Womens Page
-    * Kids Page
-    * Advertising Crousers
+* Mens Page
+* Womens Page
+* Kids Page
+* Advertising Crousers
 
 3)Somya Ranjan Singh:
     * Category-wise product display UI and pages
