@@ -1,25 +1,37 @@
 # fixed-thread-889
 
 ## Objective:
-    To create a e-commerce web model for shopping clothings, for user to search, choose clothings and admins to manage data.
+To create a e-commerce web model for shopping clothings, for user to search, choose clothings and admins to manage data.
 
 ## Description:
 
-    This is a collaborative project to clone a e-commerce website, working model, featuring clothing shopping. Various features like searching category wise data, psuedo-purchasing cart items. Responsive website on range of screens from smarphones to large screens.
+This is a collaborative project to clone a e-commerce website, working model, featuring clothing shopping. Various features like searching category wise data, psuedo-purchasing cart items. Responsive website on range of screens from smarphones to large screens.
 
 
 ## Tech Stacks:
+    
+    1) Front-end:
+        * React (HTML5, JS, CSS3)
+        * Redux (React-redux, redux-thunk)
+        * Chakra Ui
+        * External CSS Libraries (Styled-Components, framer-motion)
 
+    2) Back-end:
+        * Node
+        * Express
+        * Mongoose (server-databse)
+        * Render.com (To Deploy Server)
 
-
+    3) DataBase:
+        * MongoDB (MongoDB Atlas)
 
 
 ## Members:
-* [Lokesh]()
-* [Ramkumar]()
-* [Harshal]()
-* [Vinay]()
-* [Umer]()
+* [Lokesh -Team Lead](https://github.com/LV-23)
+* [Somya Ranjan Singh](https://github.com/somya143)
+* [Abhijeet Kumar](https://github.com/abhizeit)
+* [Suraj Sanjay Kokane](https://github.com/kokanesuraj007)
+* [Shivang kumar](https://github.com/kshivang80)
 
 ## Functions:
 
