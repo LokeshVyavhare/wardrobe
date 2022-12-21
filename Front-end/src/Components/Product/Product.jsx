@@ -3,10 +3,10 @@
 import {
   Box,
   Button,
-  Flex,
   HStack,
   Image,
   SimpleGrid,
+  Square,
   Text,
   useToast,
   VStack,
@@ -18,9 +18,10 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AddToCart } from "../../Redux/Cart/actions";
 import { Loading } from "../Loading/Loading";
-import style from './Product.module.css'
+import style from "./Product.module.css";
 export const Product = () => {
   const [product, setProduct] = useState({});
+  const [imageuri, setImageuri] = useState("");
   const { id } = useParams();
   const { token } = useSelector((store) => store.auth.data);
   const dispatch = useDispatch();
@@ -75,43 +76,67 @@ export const Product = () => {
         `https://wardrobe-server.onrender.com/products/${id}`
       );
       setProduct(data);
-
+      setImageuri(data.image1);
     };
-    getData(id).then(()=>{setLoading(false)});
-
+    getData(id).then(() => {
+      setLoading(false);
+    });
   }, []);
 
-  if(loading){
-    return <Loading />
+  if (loading) {
+    return <Loading />;
   }
   return (
     <Box>
       <div className={style.topBanner}>
-      <h1 className={style.h1}>{product.name}</h1>
-          <p className={style.para}>The great standard-bearer of 90s minimalism, Jil Sander continues to please its followers with streamlined, modern styles: for women, that means sleek and masculine tailored separates anchored by cult-hit shoes; and for men, everything from suiting, to sneakers, to denim – all with a contemporary edge...
-           View more</p>
+        <h1 className={style.h1}>{product.name}</h1>
+        <p className={style.para}>
+          The great standard-bearer of 90s minimalism, Jil Sander continues to
+          please its followers with streamlined, modern styles: for women, that
+          means sleek and masculine tailored separates anchored by cult-hit
+          shoes; and for men, everything from suiting, to sneakers, to denim –
+          all with a contemporary edge... View more
+        </p>
       </div>
       <Box w="60%" m="auto">
-    
-        <Flex direction={["column", "row", "row", "row "]} gap={16}>
+        <SimpleGrid columns={[1, 1, 2, 2]} spacing={6} paddingY={6}>
+          <VStack>
+            <Image src={imageuri} height="300px" />
+            <HStack gap="30px">
+              <Square
+                size="80px"
+                border="1px"
+                padding="10px"
+                onClick={() => setImageuri(product.image1)}
+              >
+                <Image src={product.image1} />
+              </Square>
+              <Square
+                size="80px"
+                border="1px"
+                padding="10px"
+                onClick={() => setImageuri(product.image2)}
+              >
+                <Image src={product.image2} />
+              </Square>
+            </HStack>
+          </VStack>
           <Box>
-            <Image src={product.image1} />
-          </Box>
-
-          <Box>
-            <VStack align="start" mt={16}>
-              <Text as="b" fontSize="20px">
+            <VStack align="start">
+              <Text as="b" fontSize="25px">
                 {product.name}
               </Text>
-              <Text fontSize="16px" align="start">
+              <Text fontSize="20px" align="start">
                 {product.tags}
               </Text>
-              <Text py={6}> $ {product.price}</Text>
-              <Text border="1px" py={3} px={1}>
+              <Text py={6} fontSize="25px">
+                $ {product.price}
+              </Text>
+              <Text border="1px" p={4}>
                 Need more help? View the Size Guide
               </Text>
               <Box justifyContent="center">
-                <HStack py={3} px={1}>
+                <HStack py={3}>
                   <FaTape />
                   <Text>Find your size</Text>
                 </HStack>
@@ -130,7 +155,7 @@ export const Product = () => {
               </Button>
             </VStack>
           </Box>
-        </Flex>
+        </SimpleGrid>
         <SimpleGrid
           my={12}
           columns={["1", "1", "1", "2", "2"]}
