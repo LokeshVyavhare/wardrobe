@@ -22,7 +22,8 @@ const postProduct = async (next, o) => {
 
 export const AllProduct = () => {
     const [data, setData] = useState([]);
-    const [count, setCount] = useState(0);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
     useEffect(() => {
         postProduct(setData, setCount);
     }, [])
