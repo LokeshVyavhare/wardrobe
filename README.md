@@ -105,8 +105,9 @@ This is a collaborative project to clone a e-commerce website, working model, fe
 ![Screenshot (426)](https://user-images.githubusercontent.com/81003403/207111513-2fde8fa4-cb00-4a64-8a2e-dc120cc6e6a1.png)
 
 # Product Page
+![WhatsApp Image 2022-12-22 at 8 56 13 PM](https://user-images.githubusercontent.com/81003403/209167599-31649600-abfd-44ea-b84a-ff799c0afe52.jpeg)
 
-![Screenshot (427)](https://user-images.githubusercontent.com/81003403/207111598-edf94564-a17f-482f-899c-99b0a2b0fe75.png)
+
 
 # Cart Page
 
