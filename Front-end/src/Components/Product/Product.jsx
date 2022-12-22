@@ -81,7 +81,7 @@ export const Product = () => {
     getData(id).then(() => {
       setLoading(false);
     });
-  }, []);
+  }, [id]);
 
   if (loading) {
     return <Loading />;
