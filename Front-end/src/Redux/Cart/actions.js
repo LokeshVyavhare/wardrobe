@@ -77,7 +77,7 @@ export const updateCartItem = (token, cartId, quantity) => async (dispatch)=> {
     }
 }
 
-export const Delete_Cart_Item = (token, cartId) => async (dispatch)=> {
+export const Delete_Cart_Item = (token, cartId, toast) => async (dispatch)=> {
 
 
     dispatch({type:Cart_Delete_Items_Loading});
@@ -87,7 +87,7 @@ export const Delete_Cart_Item = (token, cartId) => async (dispatch)=> {
     try{
         let req =await axios.delete(`https://wardrobe-server.onrender.com/carts/${cartId}`, {headers:{token:token}});
         dispatch({type:Cart_Delete_Items_Success, payload: cartId});
-        alert('item deleted successfully')
+        toast();
 
     }catch(err){
         dispatch({type:Cart_Delete_Items_Error})
@@ -95,7 +95,7 @@ export const Delete_Cart_Item = (token, cartId) => async (dispatch)=> {
     }
 }
 
-export const Empty_Cart_Item = (token) => async (dispatch)=> {
+export const Empty_Cart_Item = (token, fun) => async (dispatch)=> {
 
 
     dispatch({type:Cart_Empty_Items_Loading});
@@ -105,6 +105,7 @@ export const Empty_Cart_Item = (token) => async (dispatch)=> {
     try{
         let req =await axios.post(`https://wardrobe-server.onrender.com/carts/empty/${id}`,{}, {headers:{token:token}});
         dispatch({type:Cart_Empty_Items_Success});
+        fun();
 
     }catch(err){
         dispatch({type:Cart_Empty_Items_Error})
