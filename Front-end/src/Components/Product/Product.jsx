@@ -1,5 +1,3 @@
-//Abhijeet's part
-
 import {
   Box,
   Button,
@@ -57,16 +55,6 @@ export const Product = () => {
     }
     dispatch(AddToCart(token, id, toaster));
   };
-
-  // "_id": "636e7e01d81cbbad4a8c9bd5",
-  // "name": "MM6 MAISON MARGIELA",
-  // "image1": "https://www.yoox.com/images/items/50/50291958CE_14_f.jpg?impolicy=crop&width=387&height=490",
-  // "image2": "https://www.yoox.com/images/items/50/50291958CE_14_f.jpg?impolicy=crop&width=387&height=490",
-  // "description": "Item made in Italy, synonymous with quality and design creativity.",
-  // "price": 144,
-  // "category": "men",
-  // "tags": "jwellery"
-  // },
 
   useEffect(() => {
     setLoading(true);
@@ -231,14 +219,14 @@ export const Product = () => {
         <Text marginY={6} fontSize="40px" align="center">
           You May Also Like
         </Text>
-        <SimpleGrid columns={["1", "1", "1", "5", "5"]}>
+        <SimpleGrid columns={["1", "1", "1", "5", "5"]} py={6}>
           <VStack>
             <Image src="https://www.yoox.com/images/items/16/16176231CO_14_f.jpg?impolicy=crop&width=306&height=390" />
             <Text as="b" fontSize="20px">
               MONCLER
             </Text>
             <Text fontSize="20px">Jacket</Text>
-            <Text fontSize="20px">₹ 15880</Text>
+            <Text fontSize="20px">$ 1588</Text>
           </VStack>
           <VStack>
             <Image src="https://www.yoox.com/images/items/14/14206630GX_14_f.jpg?impolicy=crop&width=387&height=490" />
@@ -246,7 +234,7 @@ export const Product = () => {
               TORY BRUCH
             </Text>
             <Text fontSize="20px">Cardigan</Text>
-            <Text fontSize="20px">₹ 18840</Text>
+            <Text fontSize="20px">$ 1884</Text>
           </VStack>
           <VStack>
             <Image src="https://www.yoox.com/images/items/13/13919572QB_14_f.jpg?impolicy=crop&width=306&height=390" />
@@ -254,7 +242,7 @@ export const Product = () => {
               DIESEL
             </Text>
             <Text fontSize="20px">Denim pants</Text>
-            <Text fontSize="20px">₹ 15730</Text>
+            <Text fontSize="20px">$ 1573</Text>
           </VStack>
           <VStack>
             <Image src="https://www.yoox.com/images/items/16/16179483LM_14_f.jpg?impolicy=crop&width=306&height=390" />
@@ -262,15 +250,15 @@ export const Product = () => {
               NINEMINUTES
             </Text>
             <Text fontSize="20px">Biker Jacket</Text>
-            <Text fontSize="20px">₹ 21954</Text>
+            <Text fontSize="20px">$ 21954</Text>
           </VStack>
           <VStack>
             <Image src="https://www.yoox.com/images/items/50/50289777SW_14_f.jpg?impolicy=crop&width=306&height=390" />
             <Text as="b" fontSize="20px">
-              SALVATORE FERRAGAMO
+              FERRAGAMO
             </Text>
             <Text fontSize="20px">Wrist watch</Text>
-            <Text fontSize="20px">₹ 50832</Text>
+            <Text fontSize="20px">$ 1845</Text>
           </VStack>
         </SimpleGrid>
       </Box>
