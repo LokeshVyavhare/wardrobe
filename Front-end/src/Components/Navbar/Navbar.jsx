@@ -107,7 +107,7 @@ export const Navbar = () => {
                             {isAuth ? ""
                                 : <NavLink to="/register"><Text>Register</Text></NavLink>
                             }
-                            {isAuth && Usertype === 'seller' ?
+                            {isAuth && true ?
                                 <NavLink to="/admin"><Text>Seller</Text></NavLink>
                                 : Usertype === 'customer' ?
                                     <Text>Customer</Text>

@@ -2,7 +2,7 @@ import style from './modal.module.css'
 import { useState } from 'react';
 export const EditProductModal = ({data, methods}) => {
     const {name, tags, category, price, image1, image2} = data;
-    const {closeModal, update, setData} = methods
+    const {closeModal, updateModal, setData} = methods
 
 
     return <div className={style.modal}>
@@ -25,6 +25,7 @@ export const EditProductModal = ({data, methods}) => {
                 </label>
                 <label> Category: 
                 <input type="text"  value={category} onChange={(e)=>{
+                    
                     setData({...data, category:e.target.value})
                 }}/>
                 </label>
@@ -39,14 +40,16 @@ export const EditProductModal = ({data, methods}) => {
                 }}/>
                 </label>
                 <label> Image 2: 
-                <input type="text"  value={image2} onChange={(e)=>{
+                <input type="text"  
+                    value={image2}
+                    onChange={(e)=>{
                     setData({...data, image2:e.target.value})
                 }}/>
                 </label>
 
                 <div className={style.buttonBox}>
                 <button className={style.cancle} onClick={closeModal}>Discard</button>
-                <button className={style.success} >Update</button>
+                <button className={style.success} onClick={updateModal}>Update</button>
                 </div>
             </div>
 
