@@ -25,6 +25,7 @@ export const EditProductModal = ({data, methods}) => {
                 </label>
                 <label> Category: 
                 <input type="text"  value={category} onChange={(e)=>{
+                    
                     setData({...data, category:e.target.value})
                 }}/>
                 </label>
@@ -39,7 +40,9 @@ export const EditProductModal = ({data, methods}) => {
                 }}/>
                 </label>
                 <label> Image 2: 
-                <input type="text"  value={image2} onChange={(e)=>{
+                <input type="text"  
+                    value={image2}
+                    onChange={(e)=>{
                     setData({...data, image2:e.target.value})
                 }}/>
                 </label>
