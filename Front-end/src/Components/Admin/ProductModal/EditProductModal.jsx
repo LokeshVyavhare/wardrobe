@@ -2,7 +2,7 @@ import style from './modal.module.css'
 import { useState } from 'react';
 export const EditProductModal = ({data, methods}) => {
     const {name, tags, category, price, image1, image2} = data;
-    const {closeModal, update, setData} = methods
+    const {closeModal, updateModal, setData} = methods
 
 
     return <div className={style.modal}>
@@ -49,7 +49,7 @@ export const EditProductModal = ({data, methods}) => {
 
                 <div className={style.buttonBox}>
                 <button className={style.cancle} onClick={closeModal}>Discard</button>
-                <button className={style.success} >Update</button>
+                <button className={style.success} onClick={updateModal}>Update</button>
                 </div>
             </div>
 
