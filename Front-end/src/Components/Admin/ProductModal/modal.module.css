@@ -9,10 +9,10 @@
     background-color: rgba(0, 0, 0, 0.336);
 }
 .body{
-    background-color: rgb(250,250,250);
+    background-color: rgb(255, 255, 255);
     width: 40%;
-    height: 80vh;
-    margin: 10vh auto;
+    height: 86vh;
+    margin: 7vh auto;
     box-sizing: border-box;
     padding: 15px;
     border-radius: 25px;
@@ -22,4 +22,57 @@
     font-size: 25px;
     font-weight: 800;
     margin: 7px 14px;
+}
+.form{
+    text-align: left;
+    font-size: 13px;
+}
+.form label{
+    padding: 0 5px;
+    font-weight: 700;
+}
+.form input{
+    display:block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 3px 7px;
+    text-transform: lowercase;    
+    margin-bottom: 9px;
+    margin-top: 4px;
+    border: 1px solid rgb(206, 206, 206);
+    border-radius: 7px;
+}
+
+.buttonBox{
+    display: flex;
+    justify-content: end;
+}
+.buttonBox>button{
+    border-radius: 10px;
+    background-color: grey;
+    padding: 7px 14px;
+    margin-left: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+.buttonBox>button.cancle{
+    background-color: rgb(224, 58, 28);
+}
+.buttonBox>button.cancle:hover{
+    background-color: rgb(255, 56, 21);
+    text-decoration: underline;  
+}
+.buttonBox>button.cancle:active{
+    background-color: rgb(184, 46, 21);
+}
+
+.buttonBox>button.success{
+    background-color: rgb(3, 214, 3);    
+}
+.buttonBox>button.success:hover{
+    background-color: rgb(5, 255, 5);  
+    text-decoration: underline;  
+}
+.buttonBox>button.success:active{
+    background-color: rgb(3, 167, 3);    
 }
