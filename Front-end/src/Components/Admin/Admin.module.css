@@ -159,3 +159,18 @@
     background-color: rgb(199, 199, 199);
     color: rgb(0, 0, 0);
 }
+
+
+
+/* Product.jsx */
+
+.editbutton:hover{
+    color: rgb(124, 207, 0);
+    font-weight: 500;
+    text-decoration: underline;
+}
+.deleteButton:hover{
+    color: rgb(207, 0, 0);
+    font-weight: 500;
+    text-decoration: underline;
+}

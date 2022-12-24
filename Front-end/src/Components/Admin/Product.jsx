@@ -43,8 +43,8 @@ export const Product = ({data}) => {
             <Flex justify='left'><Text><b>Category: </b></Text><Text textTransform={'capitalize'} ml='10px'> {' '+ tags}</Text></Flex>
         </Box>
         <Flex justify='space-around' align='baseline' justifySelf={'end'} m='0 auto' w='100%' cursor='pointer'>
-            <p>Delete</p>
-            <p onClick={handleEdit}>Edit</p>
+            <p className={style.deleteButton}>Delete</p>
+            <p onClick={handleEdit} className={style.editbutton}>Edit</p>
         </Flex>
     </Flex>
 }
