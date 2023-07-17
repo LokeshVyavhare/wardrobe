@@ -15,7 +15,7 @@ This is a collaborative project to clone a e-commerce website, working model, fe
 ![Screenshot (425)](https://user-images.githubusercontent.com/81003403/207111836-2c8dea8c-23d6-4ddc-b915-989628de5819.png)
 
 
-# Category Page (Click on FOOTWEAR Section )
+# Category Page (Click on FOOTWEAR Section for this page )
 ![Screenshot (426)](https://user-images.githubusercontent.com/81003403/207111513-2fde8fa4-cb00-4a64-8a2e-dc120cc6e6a1.png)
 
 
